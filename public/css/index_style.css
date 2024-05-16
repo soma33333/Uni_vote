@@ -1,0 +1,77 @@
+.uni {
+    text-align: center;
+    font-family: Arial, sans-serif; /* Specify your preferred font */
+    font-size: 40px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    text-decoration: underline; /* Add an underline decoration */
+    color: #007bff; /* Set the text color */
+  }
+
+.container{
+    margin-top: 38px;
+    border-radius: 10px;
+    margin-left: 250px;
+    border: 2px solid black;
+    height: 460px;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+}
+
+.left{
+    background-color: antiquewhite;
+    border-radius: 10px;
+    border: 2px solid black;
+    height: 460px;
+    width: 400px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right{
+    /* background-color: rgb(93, 53, 53); */
+    border-radius: 10px;
+    border: 2px solid black;
+    height: 460px;
+    width: 400px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.butt{
+    height: 50px;
+    width: 100px;
+    color: burlywood;
+}
+
+.butt:hover{
+    background-color: aquamarine;
+}
+#time_msg{
+    margin-bottom: 13px;
+    font-size: 20px;
+    height: 90px;
+    width: 300px;
+    border: 2px  solid black;
+
+}
+
+#incorrect{
+   margin-top: 10px;
+    font-size: 15px;
+    height: 30px;
+    width: 200px;
+    border: 2px  solid black;
+}
+
+
+
+#ar{background-color: blue;}
+#al{background-color: blue;}
+#ur{background-color: rgb(21, 183, 164);}
+#ul{background-color:rgb(21, 183, 164);}

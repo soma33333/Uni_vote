@@ -1,0 +1,162 @@
+table, th, td {
+    border: 1px solid black;
+  }
+
+table{
+    display: flex;
+    justify-content: center;
+}
+
+th{
+    width: 200px;
+    text-align: center;
+}
+td{
+    width: 200px;
+    text-align: center;
+}
+
+#navbar{
+    background-color: bisque;
+    height: 46px;
+    width:100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+a{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width:100px;
+    background-color: aqua;
+    border: 2px solid black;
+   
+}
+
+
+
+.contain{
+    padding: 5px;
+    height: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    border:2px solid black;
+}
+
+.caninfo{
+    font-size: 20px;
+    height: 400px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid black;
+
+}
+
+.can_dlt{
+    font-size: 20px;
+    padding: 10px;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid black;
+}
+
+
+.coo{
+    height:600px ;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.input_time{
+    height: 350px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid black;
+}
+
+.dis_time{
+    /* font-size: 18px; */
+    height: 200px;
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid black;
+}
+.dlt_time{
+    /* font-size: 18px; */
+    padding: 10px;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid black;
+}
+
+#table{
+    height: 600px;
+    width: 100%;
+    border:2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#feedcontrol{
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.feedinfo{
+    margin-top: 10px;
+    height: 200px;
+    text-align: center;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 400px;
+    border: 2px solid black;
+ 
+}
+.feed_dlt{
+    margin-top: 10px;
+    height: 200px;
+    text-align: center;
+    /* font-size: 20px; */
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 420px;
+    border: 2px solid black;
+}

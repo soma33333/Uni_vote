@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="/css/admin.css">
+</head>
+<body>
+   <h1 style="text-align: center;"><i>ADMIN</i></h1>
+
+   <div id="navbar">
+    <a class="navbut" style="text-decoration: none;"  href="index.html">LOG OUT</a>
+    <a class="navbut" style="text-decoration: none;"  href="#table">LIST</a>
+    <a class="navbut" style="text-decoration: none;"  href="#coo">TIME</a>
+    <a class="navbut" style="text-decoration: none;"  href="#feedcontrol">FEEDBACK</a>
+   </div>
+
+   <h1 style="color: red; text-align:center">{{note}}</h1>
+    <div class="contain">
+            
+    <div class="caninfo">
+    <form action="admin" enctype="multipart/form-data" method="post">
+
+        <label for="can_num">  SERIAL NO: </label>
+        <input  type="number"id=can_num name="can_num" style="width: 250px;padding:7px;border-radius:5px; border:1.5px solid black;" required><br><br>
+        <label for="can_name">  CANDIDATE NAME:</label>
+        <input type="text" name="can_name" id="can_name"  style="width: 250px;padding:7px;border-radius:5px; border:1.5px solid black;" required><br><br>
+        <label for="can_pic"> PROFILE PIC :</label>
+        <input type="file" id="can_pic" name="pic" required><br><br>
+        <label for="can_party">  PARTY SYMBOL :</label>
+        <input type="file" id="can_party" name="pic" required><br><br>
+        <button type="submit"  style="height: 40px;width:100px;margin-left:160px;border-radius:5px">UPLOAD</button>
+ 
+    </form>
+    </div>
+
+
+
+
+<div class="can_dlt">
+   <form action="admin"  method="post">
+     <br>
+        <label for="num">   ENTER CANDIDATE SERIAL  NUMBER TO DELETE:</label>
+         <input type="number" style="width: 250px;padding:7px;border-radius:5px; border:1.5px solid black;"  id="num" name="num" required><br><br>
+        <button type="submit"  style="height: 40px;width:100px;margin-left:100px;border-radius:5px">DELETE</button>
+    </form>
+    </div>
+</div>
+
+
+
+
+<div id="coo" class="coo">
+
+<div class="input_time">
+    <h2>UPDATE TIME:</h2><br>
+    <form  action="admin" method="post">
+        <label for="day">DAY:</label>
+    <input  type="number"id=day name="day"  style="width: 100px;padding:7px;border-radius:5px; border:1.5px solid black;" max="31"   required><br><br>
+    <label for="hr">HOUR:</label>
+    <input  type="number"  id="hr" name="hr" style="width: 100px;padding:7px;border-radius:5px; border:1.5px solid black;" max="23" required><br><br>
+       <label for="min">MIN:</label>
+    <input type="number"  id="min" name="min" style="width: 100px;padding:7px;border-radius:5px; border:1.5px solid black;" max="59" required><br><br>
+       <label for="sec">SEC:</label>
+    <input type="number"   id="sec" name="sec" style="width: 100px;padding:7px;border-radius:5px; border:1.5px solid black;" max="59" required><br><br>
+    <button type="submit" style="height: 40px;width:100px;border-radius:5px">  START</button>
+</form>
+</div>
+
+<div class="dis_time">
+    <h2>VOTING ENDS BEFORE:</h2><br>
+   
+
+         {{#each datat}}
+           DAY: {{this.day}}
+            HR:{{this.hr}}
+            MIN:{{this.min}}
+            SEC{{this.sec}}
+        {{/each}}
+</div>
+
+
+<div class="dlt_time">
+<form action="admin" method="post">
+    <label ><h2>DELETE   PREVIOUS TIME BEFORE UPDATING  NEW TIME:</h2></label>
+<input  type="hidden" value="10"  name="dlt_time"><br><br>
+<button type="submit"  style="height: 40px;width:100px;margin-left:100px;border-radius:5px">DELETE_TIME</button>
+</form>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div id="table">
+<h2>CANDIDATES LIST</h2>
+<table>
+    <tbody>
+        <tr>
+    <th>SLNO</th>
+    <th>SYMBOL</th>
+    <th>NAME</th>
+    <th>PROFILE</th>
+  </tr>
+        {{#each data1}}
+            <tr>
+                <td>{{this.idno}}</td>
+                  <td><img src="data:image/png;base64,{{this.symbol}}"  width="110px" height="100px"></td>
+                <td>{{this.name}}</td>
+                 <td><img src="data:image/png;base64,{{this.image}}"  width="110px" height="100px"></td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>
+
+
+<div id="feedcontrol">
+
+ 
+<div class="feedinfo">
+  
+     {{#each data2}}
+       <li>{{this.message}}</li>
+       
+        {{/each}}
+
+</div>
+
+
+<div class="feed_dlt">
+<form action="admin" method="post">
+    <label for="dlt"><h2>DELETE FEEDBACK ------USER ID :</h2></label>
+<input  type="number" id="dlt" style="width: 150px;padding:7px;border-radius:5px; border:1.5px solid black;"   name="feed"><br><br>
+<button type="submit"  style="height: 40px;width:110px;border-radius:5px">DELETE_FEED</button>
+</form>
+
+</div>
+</div>
+
+
+
+</body>
+</html>

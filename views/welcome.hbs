@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/welcomestyle.css">    
+</head>
+<body>
+
+<div id="tb">
+    <p>voting ends in</p>
+    <p id="demo"></p>
+    </div>
+    
+    <form id="timer" action="welcome" method="post">
+        <input type="hidden"  name="time" value="3">
+    </form>
+    
+        <h2>INSTRUCTIONS:</h2>  <h3>HE/SHE</h3>
+      
+        <h3>- - - - -Can vote ONLY ONE of the candidate listed below.  </h3>
+        <h3>- - - - -Should vote BEFORE voting period ends.  </h3>
+        <h3>- - - - -able to see the RESULT only after voting period ends.</h3>
+        <div id="container">
+                <div id="logobox">
+                    <div id="logo"></div>
+                </div>
+    
+  
+
+
+
+    <table>
+    <tbody>
+        <tr>
+    <th>SLNO</th>
+     <th>NAME</th>
+      <th>PROFILE</th>
+    <th>SYMBOL</th>
+      <th>VOTING</th>
+  </tr>
+        {{#each data}}
+            <tr>
+                <td>{{this.idno}}</td>
+                <td>{{this.name}}</td>
+                <td><img src="data:image/png;base64,{{this.image}}"  width="110px" height="100px"></td>
+                <td><img src="data:image/png;base64,{{this.symbol}}"  width="110px" height="100px"></td>
+                <td>    <form action="done" method="post">
+                        <input type="hidden"  name="voo" value="{{this.idno}}">
+                        <button type="submit"   >VOTE</button>
+                    </form>
+                    </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+        </div>
+
+
+
+
+        <div id="scroll"></div>
+     <p id="msg"></p>
+
+
+
+
+
+
+
+
+<script src="wel.js"></script>
+
+</body>
+</html> 
