@@ -219,45 +219,52 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
     const  min=req.body.min;
     const  sec=req.body.sec;
     if(hr!=undefined &&  min!=undefined && sec!=undefined){
-        sql.query("INSERT INTO time   (day,hr,min,sec) VALUES (?,?,?,?)  ",[day,hr,min,sec], (err, result) => {
-            if (result) {
+        sql.query("SELECT * from time ", (err, result1) => {
+                    if(result1.length>0){
 
-                // sql.query("SELECT * from time ", (err, result1) => {
-                //     if(result1.length>0){
-                //         sql.query("SELECT * from time ,candidates", (err, result) => {
-                //             if (result) {
-                //                res.render("admin",{data:result,day:result[0].day,
-                //                    hr:result[0].hr,min:result[0].min,sec:result[0].sec})
-                                   
-                //            }
-                //            console.log(err)})
-                //     }
-                //     else{
-                //         sql.query("SELECT * from candidates", (err, result) => {
-                //             if (result) {
-                //                res.render("admin",{data:result})}})
-                
-                //     }
-                //    })
-                sql.query("SELECT * from time ", (err, result1) => {
-                    if(result1){
-                        sql.query("SELECT * from candidates", (err, result) => {
-                            console.log(result)
-                            if (result) {
-                                console.log("can");
-                                sql.query("SELECT * FROM feedback", (err, result2) => {
-                                    if (result2) {
-                                        console.log("feed");
-                                        res.render("admin",{data1:result,data2:result2,datat:result1})
-                                    }})     }
-                           console.log(err)})
+                        sql.query("SELECT * from time ", (err, result1) => {
+                            if(result1){
+                                sql.query("SELECT * from candidates", (err, result) => {
+                                    console.log(result)
+                                    if (result) {
+                                        console.log("can");
+                                        sql.query("SELECT * FROM feedback", (err, result2) => {
+                                            if (result2) {
+                                                console.log("feed");
+                                                res.render("admin",{data1:result,data2:result2,datat:result1,note:"VOTING HAS ALREADY BEGUN!   CANDIDATE LIST CANNOT BE MODIFIED! "})
+                                            }})     }
+                                   console.log(err)})
+                            }
+                            console.log(err)})
+
                     }
-                    console.log(err)})
-            }
-            if(err){
-                console.log(err)
-            }
-        })
+                else{
+                    sql.query("INSERT INTO time   (day,hr,min,sec) VALUES (?,?,?,?)  ",[day,hr,min,sec], (err, result) => {
+                        if (result) {
+            
+                            sql.query("SELECT * from time ", (err, result1) => {
+                                if(result1){
+                                    sql.query("SELECT * from candidates", (err, result) => {
+                                        console.log(result)
+                                        if (result) {
+                                            console.log("can");
+                                            sql.query("SELECT * FROM feedback", (err, result2) => {
+                                                if (result2) {
+                                                    console.log("feed");
+                                                    res.render("admin",{data1:result,data2:result2,datat:result1})
+                                                }})     }
+                                       console.log(err)})
+                                }
+                                console.log(err)})
+                        }
+                        if(err){
+                            console.log(err)
+                        }
+                    })
+
+                }})
+
+
     }
 
 
@@ -285,7 +292,7 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
                             sql.query("SELECT * FROM feedback", (err, result2) => {
                                 if (result2) {
                                     console.log("feed");
-                                    res.render("admin",{data1:result,data2:result2,datat:result1,note:"dlttt"})
+                                    res.render("admin",{data1:result,data2:result2,datat:result1,note:"VOTING HAS ALREADY BEGUN!   CANDIDATE LIST CANNOT BE MODIFIED! "})
                                 }})     }
                        console.log(err)})
                 }
@@ -628,9 +635,10 @@ app.post("/welcome", urlencodedparser, (req, res) => {
 
         sql.query("SELECT * from candidates", (err, result1) => {
             if (result1) {
-                sql.query("SELECT name, votes FROM candidates WHERE votes = (SELECT Max(votes) FROM candidates)",(err,result2)=>{
+                sql.query("SELECT * FROM candidates WHERE votes = (SELECT Max(votes) FROM candidates)",(err,result2)=>{
                     if(result2){
-                        res.render("result",{data:result1,name:result2[0].name,votes:result2[0].votes})
+                        console.log(result2)
+                        res.render("result",{data:result1,winner:result2})
                     }
              })
                

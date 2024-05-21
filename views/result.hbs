@@ -8,12 +8,42 @@
 </head>
 <body>
 
- <h1>VOTING FINAL RESULT</h1>
-    <div id="container">
-        <div id="logobox">
-            <div id="logo"></div>
+ <h1 style="text-align: center; color:rgba(134, 95, 11, 0.913);margin-bottom:30px">FINAL RESULT</h1>
+<div class="win">WINNER IS</div>
+<div class="table1">
+ <table class="table2"> 
+    <tbody>
+        <tr>
+    <th>SLNO</th>
+    <th>NAME</th>
+    <th>PROFILE</th>
+    <th>SYMBOL</th>
+    <th>VOTE COUNT</th>
+  </tr>
+        {{#each winner}}
+            <tr>
+                <td>{{this.idno}}</td>
+                  <td>{{this.name}}</td>
+                <td><img src="data:image/png;base64,{{this.image}}"  width="110px" height="100px"></td>
+                <td><img src="data:image/png;base64,{{this.symbol}}"  width="110px" height="100px"></td>
+                <td>  {{this.votes}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
         </div>
 
+
+
+
+
+
+
+
+
+<h3 style="text-align: center;font-size:25px; color:rgba(134, 95, 11, 0.913);">Candidate  List</h3>
+<div class="table">
  <table>
     <tbody>
         <tr>
@@ -42,14 +72,7 @@
 
 
 
-</div>
-    <div class="winb">
-    <h2>WINNER IS...</h2>
-    <br>
-     <h2 >{{name}} </h2>
-     <h2 >with {{votes}} votes</h2>
-    
-    </div>
+
 
 
 <script>

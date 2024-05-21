@@ -16,6 +16,7 @@ var y = document.getElementById("us");
 var z = document.getElementById("time_msg");
 var Incorrect = document.getElementById("incorrect");
 
+var hov=document.getElementsByClassName("butt");
 
 
 p.style.display = "none";
@@ -49,13 +50,42 @@ fetch('/data')
 });
 
 
+
+
+
+
+// x.addEventListener("mouseover", mouseOver);
+// x.addEventListener("mouseout", mouseOut);
+
+// p.addEventListener("mouseover", mouseOver);
+// p.addEventListener("mouseout", mouseOut);
+
+
+// function mouseOver() {
+//   p.style.backgroundColor = "gray";
+// }
+
+// function mouseOut() {
+//  p.style.backgroundColor = "white";
+// }
+
+
+
+
+
+
  function admin(){
 
-      x.style.backgroundColor="rgb(21, 183, 164)"
-      p.style.backgroundColor="rgb(21, 183, 164)"
-      q.style.backgroundColor="rgb(21, 183, 164)"
-      
+
+
+
+      x.style.backgroundColor="white";
+      // p.style.backgroundColor="white";
+      // q.style.backgroundColor="white";
+ 
       y.style.backgroundColor="antiquewhite"
+
+      
       
       p.style.display = "block";
       q.style.display = "block";
@@ -72,8 +102,12 @@ fetch('/data')
  function user(){
 
  
-    y.style.backgroundColor="rgb(21, 183, 164)" ;
+    y.style.backgroundColor="white" ;
+    // r.style.backgroundColor="white";
+    // s.style.backgroundColor="white";
+
     x.style.backgroundColor="antiquewhite" 
+
       r.style.display = "block";
       s.style.display = "block";
       p.style.display = "none";
@@ -87,8 +121,10 @@ fetch('/data')
  }
 
 function myFunction1() {
-  q.style.backgroundColor="rgb(21, 183, 164)"
-  p.style.backgroundColor="aqua"
+  p.style.backgroundColor="gray"
+  q.style.backgroundColor="white"
+  
+
       a.style.display = "block";
       b.style.display = "none";
       c.style.display = "none";
@@ -97,8 +133,8 @@ function myFunction1() {
 }
 
 function myFunction2() {
-  p.style.backgroundColor="rgb(21, 183, 164)"
-  q.style.backgroundColor="aqua"
+  p.style.backgroundColor="white"
+  q.style.backgroundColor="gray"
       b.style.display = "block";
       a.style.display = "none";
       c.style.display = "none";
@@ -108,8 +144,8 @@ function myFunction2() {
 
 function myFunction3() {
 
-  s.style.backgroundColor="rgb(21, 183, 164)"
-  r.style.backgroundColor="aqua"
+  s.style.backgroundColor="white"
+  r.style.backgroundColor="gray"
       c.style.display = "block";
       b.style.display = "none";
       a.style.display = "none";
@@ -118,8 +154,8 @@ function myFunction3() {
 }
 
 function myFunction4() {
-  r.style.backgroundColor="rgb(21, 183, 164)"
-  s.style.backgroundColor="aqua"
+  r.style.backgroundColor="white"
+  s.style.backgroundColor="gray"
       d.style.display = "block";
       b.style.display = "none";
       c.style.display = "none";

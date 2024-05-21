@@ -1,8 +1,18 @@
-body{
+/* body{
     background-color: burlywood;
     cursor: default;
+} */
+body{
+    background-color: rgba(243, 240, 223, 0.792);
 }
-#container{
+
+table,th,td{
+    background-color:  rgba(185, 170, 89, 0.071);
+  
+}
+
+
+/* #container{
     height: 100%;
     width: 800px;
     padding: 2vmin;
@@ -12,7 +22,7 @@ body{
     position: absolute;
     top: 40%;
     left: 15%;
-}
+} */
 
 #time{
     height: 100px;
@@ -40,7 +50,7 @@ body{
     position: fixed;
     top: 200px;
     right: 5px;
-    height: 115px;
+    height: 215px;
     width: 200px;
     border: 2px solid black;
     padding: 2px;
@@ -49,44 +59,51 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color:  rgba(243, 240, 223, 0.792);
 }
 p{
-    color: red;
+    
+    color: rgb(115, 6, 6);
     font-weight: bolder;
     font-size: 30px;
 }
 h2{
-    text-decoration: underline;
-    color:red ;
+    font-size: 18px;
+    color:rgba(134, 95, 11, 0.913);
 }
 h3{
-    font-size: 21px;
+    font-size: 15px;
     word-spacing: 8px;
+    color:rgba(134, 95, 11, 0.913);
 }
-
+.tab{margin-top: 50px;
+    
+   
+}
 th{
+    height: 50px;
     font-size: 20px;
-    width: 150px;
-    color: blue;
-    border: 2px solid black;
+    width: 200px;
+    color:rgba(134, 95, 11, 0.913);
+    /* border: 2px solid black; */
     padding: 2px;
 }
 td{
     text-align: center;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 1px;
     font-weight: bold;
 }
 button{
     width: 100px;
     height: 50px;
-    border: 3px solid red;
+    background-color: rgb(115, 6, 6);
+  color: white;
 }
 button:hover{
     cursor: pointer;
-    background-color: chartreuse;
+    background-color: rgb(28, 53, 3);
 }
 #scroll{
     background-image: url('../image/down.png');

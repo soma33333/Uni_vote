@@ -9,14 +9,14 @@
 <body>
 
 <div id="tb">
-    <p>voting ends in</p>
+    <p>Voting Ends In</p>
 <p id="demo"></p>
 </div>
 <form id="timer" action="welcome" method="post">
     <input type="hidden"  name="time" value="3">
 </form>
 
-        <h1>YOUR  VOTING IS COUNTED</h1>
+        <pre>THANK YOU!   YOUR  VOTE IS COUNTED!!</pre>
    <form action="index.html" >
     <button type="submit" id="lo">LOGOUT</button>
    </form>
@@ -28,14 +28,14 @@
 </div>
 <p id="w"></p>
 <form action="done" method="post">
-    <b style="font-size: 25px;">feedback:</b> <input type="text" id="fed" name="feed" height="100px" placeholder="type here">
-    <button type="submit" id="fb" >submit</button>
+    <b style="font-size: 22px;color:rgba(134, 95, 11, 0.913);">Feedback:</b> <input type="text" id="fed" name="feed" height="100px" placeholder="type here">
+    <button type="submit" id="fb" >Submit</button>
 </form>
 <br>
 <hr>
 <form action="done" method="post">
-    <b style="font-size: 25px;">To-Delete-Your-Feedback:</b> <input type="hidden" name="del"   value="1">
-    <button type="submit" id="fb" onclick="loo()">click here</button>
+    <b style="font-size: 22px;color:rgba(134, 95, 11, 0.913);">To Delete Your Feedback:</b> <input type="hidden" name="del"   value="1">
+    <button type="submit" id="fb" onclick="loo()">Click Here</button>
 </form>
 <br>
 
@@ -47,7 +47,7 @@
 {{#each feeds}}
 <hr>
 <li id="li">    {{this.message}}</li>
-<hr>
+
 {{/each}}
 </ul>
 </div>

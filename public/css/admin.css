@@ -1,26 +1,46 @@
 table, th, td {
-    border: 1px solid black;
+
+    background-color:  rgba(185, 170, 89, 0.071);
   }
 
+
 table{
+    
     display: flex;
     justify-content: center;
+   justify-content: space-evenly;
+    width: 100%;
 }
 
 th{
+    color: rgba(73, 53, 3, 0.792);;
     width: 200px;
     text-align: center;
+    font-size: 20px;
+    height: 100px;
 }
 td{
-    width: 200px;
+    width: 300px;
     text-align: center;
 }
 
-#navbar{
-    background-color: bisque;
-    height: 46px;
+div.navbar{
+    position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  /* background-color: #cae8ca;
+  border: 2px solid #4CAF50; */
+}
+.navbar{
+    /* background-color: rgb(196, 226, 255); */
+    background-color: rgb(98, 104, 79);
+    height: 56px;
     width:100%;
-
+    /* position: -webkit-sticky; */
+    /* position: sticky; */
+    /* position:sticky; */
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -28,56 +48,78 @@ td{
     justify-content: space-evenly;
 }
 
+a:hover{
+    background-color: rgb(174, 172, 172);
+    color: rgb(41, 41, 73);
+}
+
 a{
     text-align: center;
+    background-color: white;
+    color: rgb(41, 41, 73);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40px;
     width:100px;
-    background-color: aqua;
-    border: 2px solid black;
+/*     
+    border: 2px solid black; */
    
 }
 
 
 
 .contain{
-    padding: 5px;
-    height: 450px;
+    background-color: rgba(243, 240, 223, 0.792);
+   
+    /* padding: 5px; */
+    height: 500px;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     justify-content: space-around;
-    border:2px solid black;
+    /* border:2px solid black; */
 }
 
 .caninfo{
+    /* background-color: rgba(185, 185, 185, 0.788); */
+    /* background-color: rgb(196, 226, 255); */
+    background-color: rgb(186, 196, 144);
+    color: rgba(105, 76, 8, 0.881);
     font-size: 20px;
     height: 400px;
     width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border:2px solid black;
+    /* border:2px solid black; */
 
 }
 
 .can_dlt{
+    /* background-color: rgb(215, 219, 230); */
+      /* background-color: rgb(196, 226, 255); */
+      background-color: rgb(186, 196, 144);
+      color: rgba(105, 76, 8, 0.881);
     font-size: 20px;
     padding: 10px;
     height: 200px;
     width: 300px;
+    word-spacing: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border:2px solid black;
+    /* border:2px solid black; */
 }
 
+#bt:hover{
+    background-color: rgb(174, 172, 172);
+}
 
 .coo{
+    background-color: rgb(186, 196, 144);
     height:600px ;
     width: 100%;
     display: flex;
@@ -87,39 +129,47 @@ a{
     justify-content: space-evenly;
 }
 .input_time{
+    /* background-color: rgb(109, 163, 214); */
+    background-color: rgba(243, 240, 223, 0.792);
     height: 350px;
-    width: 300px;
+    width: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border:2px solid black;
+    /* border:2px solid black; */
 }
 
 .dis_time{
     /* font-size: 18px; */
+    background-color: rgba(243, 240, 223, 0.792);
     height: 200px;
-    width: 300px;
+    width: 350px;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border:2px solid black;
+    /* border:2px solid black; */
 }
 .dlt_time{
     /* font-size: 18px; */
+    background-color: rgba(243, 240, 223, 0.792);
     padding: 10px;
     height: 200px;
     width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border:2px solid black;
+    /* border:2px solid black; */
 }
 
 #table{
-    height: 600px;
+    background-color: rgba(243, 240, 223, 0.792);
+    /* border: 2px solid black; */
+    /* position: relative; */
+    /* display:fi\\\\; */
+    height:fit-content;
     width: 100%;
-    border:2px solid black;
+    /* border:2px solid black; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,10 +177,13 @@ a{
     align-items: center;
 }
 
+
 #feedcontrol{
+    /* position: relative; */
+    background-color: rgb(186, 196, 144);
     width: 100%;
     height: 100%;
-    border: 2px solid black;
+   
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -138,18 +191,20 @@ a{
     justify-content: space-evenly;
 }
 .feedinfo{
+    background-color: rgba(243, 240, 223, 0.792);
     margin-top: 10px;
-    height: 200px;
-    text-align: center;
-    font-size: 20px;
+    height:fit-content;
+    text-align: left;
+    font-size: 22px;
     justify-content: center;
     align-items: center;
     padding: 10px;
     width: 400px;
-    border: 2px solid black;
+  
  
 }
 .feed_dlt{
+    background-color: rgba(243, 240, 223, 0.792);
     margin-top: 10px;
     height: 200px;
     text-align: center;
@@ -158,5 +213,5 @@ a{
     align-items: center;
     padding: 10px;
     width: 420px;
-    border: 2px solid black;
+    color:rgba(134, 95, 11, 0.913);
 }
