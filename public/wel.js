@@ -25,7 +25,7 @@
                 hr=data[0].hr;
                 min=data[0].min;
                 sec=data[0].sec;
-              console.log(data); // Do something with the retrieved data
+          
 
               const currentDate = new Date();
               const countDownDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day, hr,min,sec).getTime();

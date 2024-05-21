@@ -1,7 +1,4 @@
-/* body{
-    background-color: burlywood;
-    cursor: default;
-} */
+
 body{
     background-color: rgba(243, 240, 223, 0.792);
 }
@@ -11,18 +8,6 @@ table,th,td{
   
 }
 
-
-/* #container{
-    height: 100%;
-    width: 800px;
-    padding: 2vmin;
-    border: 2px solid red;
-    border-radius: 2%;
-    background-color: aliceblue;
-    position: absolute;
-    top: 40%;
-    left: 15%;
-} */
 
 #time{
     height: 100px;
@@ -85,13 +70,11 @@ th{
     font-size: 20px;
     width: 200px;
     color:rgba(134, 95, 11, 0.913);
-    /* border: 2px solid black; */
     padding: 2px;
 }
 td{
     text-align: center;
     align-items: center;
-    /* border: 1px solid black; */
     padding: 1px;
     font-weight: bold;
 }

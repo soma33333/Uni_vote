@@ -54,25 +54,6 @@ fetch('/data')
 
 
 
-// x.addEventListener("mouseover", mouseOver);
-// x.addEventListener("mouseout", mouseOut);
-
-// p.addEventListener("mouseover", mouseOver);
-// p.addEventListener("mouseout", mouseOut);
-
-
-// function mouseOver() {
-//   p.style.backgroundColor = "gray";
-// }
-
-// function mouseOut() {
-//  p.style.backgroundColor = "white";
-// }
-
-
-
-
-
 
  function admin(){
 
@@ -80,9 +61,6 @@ fetch('/data')
 
 
       x.style.backgroundColor="white";
-      // p.style.backgroundColor="white";
-      // q.style.backgroundColor="white";
- 
       y.style.backgroundColor="antiquewhite"
 
       
@@ -103,10 +81,7 @@ fetch('/data')
 
  
     y.style.backgroundColor="white" ;
-    // r.style.backgroundColor="white";
-    // s.style.backgroundColor="white";
-
-    x.style.backgroundColor="antiquewhite" 
+    x.style.backgroundColor="antiquewhite" ;
 
       r.style.display = "block";
       s.style.display = "block";
@@ -228,11 +203,3 @@ function passad(){
   alert("REGISTRATION SUCCCESSFUL!...")
   }
 
-//   if(window.history.replaceState){
-//       window.history.replaceState(null,null,window.location.href);
-//   }
-
-//           window.history.forward(); 
-//           function noBack() { 
-//               window.history.forward(); 
-//           } 

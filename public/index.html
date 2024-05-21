@@ -25,13 +25,13 @@
                   
                         <button type="submit" id="ad" class="butt"     onclick="admin()">ADMIN</button><br><br>
                  
-                    <button type="submit"  id="ar" class="butt"  onclick="myFunction2()">SIGN IN</button><br>
-                    <button type="submit" id="al" class="butt" onclick="myFunction1()">SIGN UP</button><br>
+                    <button type="submit"  id="ar" class="butt"  onclick="myFunction2()">SIGN UP</button><br>
+                    <button type="submit" id="al" class="butt" onclick="myFunction1()">SIGN IN</button><br>
             
                 </div>
                 <div id="userr">
-                    <button type="submit"id="ur" class="butt" onclick="myFunction4()">SIGN IN</button><br>
-                    <button type="submit"  id="ul"  class="butt" onclick="myFunction3()">SIGN UP</button><br>
+                    <button type="submit"id="ur" class="butt" onclick="myFunction4()">SIGN UP</button><br>
+                    <button type="submit"  id="ul"  class="butt" onclick="myFunction3()">SIGN IN</button><br>
                     <button type="submit" id="us" class="butt" onclick="user()">USER</button><br><br>
   
                 </div>
@@ -45,30 +45,34 @@
 
             <form id="admin_login" action="admin" method="post">
                 <label for="aid" >ADMIN_ID:  </label>
-                <input type="text" id="aid" name="admin_id"  style="width: 220px;padding:7px;border-radius:5px; border:none;" required><br><br>
+                <input type="text" id="aid" name="admin_id"  style="width: 220px;padding:7px;border-radius:5px; border-top: black;" required><br><br>
                 <label for="an">ADMIN_NAME:  </label>
-                <input type="text" id="an" name="admin_name"  style="width: 220px;padding:7px;border-radius:5px; border:none;" required><br><br>
+                <input type="text" id="an" name="admin_name"  style="width: 220px;padding:7px;border-radius:5px; border-top: black;" required><br><br>
                 <label for="ac">ADMIN_CODE:  </label>
-                <input type="text" id="ac" name="admin_code"  style="width: 220px;padding:7px;border-radius:5px; border:none;" required><br><br>
+                <input type="text" id="ac" name="admin_code"  style="width: 220px;padding:7px;border-radius:5px; border-top: black;" required><br><br>
                 <label for="pa"> PASSWORD: </label>
-                <input type="text" id="pa" name="admin_pass"  style="width: 220px;padding:7px;border-radius:5px; border:none;" required><br><br>
+                <input type="text" id="pa" name="admin_pass"  style="width: 220px;padding:7px;border-radius:5px; border-top: black;" required><br><br>
                 <p style="color: red;" id="admsg"></p>
                 <button type="submit" id="sub"  style="height: 40px;width:100px;margin-left:160px;border-radius:5px" onclick="setTimeout(validadmin,1000)">SUBMIT</button>
             </form>
 
             <form id="admin_regis" action="index"  method="post">
                 <label for="aid1"> ADMIN_ID: </label>
-                <input type="text" id="aid1" name="admin_id" style="width: 220px;padding:7px;border-radius:5px; border: none;" required><br><br>
+                <input type="text" id="aid1" name="admin_id" style="width: 220px;padding:7px;border-radius:5px; border-top: black;" required><br><br>
                 <label for="an1"> ADMIN_NAME:</label>
-                 <input type="text" id="an1" name="admin_name" style="width: 220px;padding:7px;border-radius:5px; border:none;" required><br><br>
+                 <input type="text" id="an1" name="admin_name" style="width: 220px;padding:7px;border-radius:5px;border-top: black;" required><br><br>
                  <label for="apo">ADMIN_PNO: </label>
-                <input type="number" id="apo" name="admin_pno" style="width: 220px;padding:7px;border-radius:5px; border:none;" maxlength="10" required><br><br>
+                <input type="number" id="apo" name="admin_pno" style="width: 220px;padding:7px;border-radius:5px; border-top: black;" maxlength="10" required><br><br>
                 <label for="ac1">ADMIN_CODE:  </label>
-                <input type="text" id="ac1" name="admin_code" style="width: 220px;padding:7px;border-radius:5px; border:none;"  required><br><br>
+                <input type="text" id="ac1" name="admin_code" style="width: 220px;padding:7px;border-radius:5px; border-top: black;"  required><br><br>
                 <label  for="admin_pass11">  PASSWORD: </label>
-               <input type="text" name="admin_pass" id="admin_pass11" style="width: 220px;padding:7px;border-radius:5px; border:none;" required><br><br>
+               <input type="text" name="admin_pass" id="admin_pass11" style="width: 220px;padding:7px;border-radius:5px; border-top: black;"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  
+               title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" 
+               required><br><br>
                <label for="admin_pass2">  CONFIRM PASSWORD:  </label>
-              <input type="text" name="admin_con_pass" id="admin_pass2" style="padding:7px;border-radius:5px; border:none;" required><br><br>
+              <input type="text" name="admin_con_pass" id="admin_pass2" style="padding:7px;border-radius:5px; border-top: black;"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  
+              title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" 
+              required><br><br>
                 <p style="color: red;" id="msg3"></p>
                 <button type="submit" id="sub" style="height: 40px;width:100px;margin-left:160px;border-radius:5px" onclick="valid2()" >SUBMIT</button>
                 
@@ -77,9 +81,9 @@
 
             <form id="user_login" action="welcome" method="post">
                     <label for="un"> USN:</label>
-                    <input  type="number" id="un" name="id" style="width: 220px;padding:7px;border-radius:5px; border:none;"  required> <br><br>
+                    <input  type="number" id="un" name="id" style="width: 220px;padding:7px;border-radius:5px; border-top: black;"  required> <br><br>
                     <label for="upa"> PASSWORD:</label>
-                    <input type="password" id="upa" name="password" id="pass1" style="width: 220px;padding:7px;border-radius:5px; border:none;"  required><br><br>
+                    <input type="password" id="upa" name="password" id="pass1" style="width: 220px;padding:7px;border-radius:5px; border-top: black;"  required><br><br>
                     <button id="fd">forgot password?</button>
                     <p style="color: red;" id="msg21"></p>
                    
@@ -92,18 +96,18 @@
             <form id="user_regis" action="index" method="post">
               
                 <label for="un1"> USN:</label>
-                <input type="number" name="id" id="un1" style="width: 220px;padding:7px;border-radius:5px; border:none;"  required> <br><br>
+                <input type="number" name="id" id="un1" style="width: 220px;padding:7px;border-radius:5px; border-top: black;"  required> <br><br>
                 <label for="name">  NAME: </label>  
-                   <input type="text" name="name" id="name" style="width: 220px;padding:7px;border-radius:5px; border:none;"  required><br><br>
+                   <input type="text" name="name" id="name" style="width: 220px;padding:7px;border-radius:5px; border-top: black;"  required><br><br>
                    <label for="mob">MOBILE NUMBER:</label> 
-                   <input type="number" id="mob"  name="phoneno" style="width: 220px;padding:7px;border-radius:5px; border:none;"   required><br><br>
+                   <input type="number" id="mob"  name="phoneno" style="width: 220px;padding:7px;border-radius:5px; border-top: black;"   required><br><br>
                    <label for="pass1">PASSWORD:</label>
-                   <input type="password" name="password" id="pass1" style="width: 220px;padding:7px;border-radius:5px; border:none;"  minlength="6"   
+                   <input type="password" name="password" id="pass1" style="width: 220px;padding:7px;border-radius:5px; border-top: black;"  minlength="6"   
                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  
                    title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" 
                    required><br>
                    <label for="pass2">   CONFIRM PASSWORD:</label>
-                <input type="password" name="conpassword" id="pass2" style="padding:7px;border-radius:5px; border:none;"  required><br><br>
+                <input type="password" name="conpassword" id="pass2" style="padding:7px;border-radius:5px; border-top: black;"  required><br><br>
                    <p style="color: red;" id="msg1"></p>
                    
                     <button type="submit" id="sub"  style="height: 40px;width:100px;margin-left:160px;border-radius:5px" onclick="valid1()">SUBMIT</button>
@@ -111,7 +115,7 @@
                 </form>
 
 
-            <p id="success">WELCOME</p>
+            <p id="success">Welcome to Univote, the premier platform for secure and transparent university elections. Participate confidently, knowing your vote is protected and your voice matters. Join your peers in shaping the future of our academic community with ease and integrity. Cast your vote with Univote today and make a meaningful impact on campus!</p>
            
 
         </div>

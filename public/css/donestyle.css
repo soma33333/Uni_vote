@@ -62,7 +62,7 @@ p{
 }
 button:hover{
     cursor: pointer;
-    background-color: chocolate;
+    background-color: gray;
 }
 
 .feed{
@@ -80,5 +80,4 @@ button:hover{
 
 #li{
     height: 30px;
-    /* background-color: bisque; */
 }

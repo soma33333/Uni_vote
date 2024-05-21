@@ -24,9 +24,9 @@
     <form action="admin" enctype="multipart/form-data" method="post">
 
         <label for="can_num">  SERIAL NO: </label>
-        <input  type="number"id=can_num name="can_num"  style="width: 250px; padding:7px"  required><br><br>
+        <input  type="number"id=can_num name="can_num"  style="width: 250px; padding:7px;border:none;"  required><br><br>
         <label for="can_name">  CANDIDATE NAME:</label>
-        <input type="text" name="can_name" id="can_name"   style="width: 250px; padding:7px" required><br><br>
+        <input type="text" name="can_name" id="can_name"   style="width: 250px; padding:7px ;border:none;" required><br><br>
         <label for="can_pic"> PROFILE PIC :</label>
         <input type="file" id="can_pic" name="pic" required><br><br>
         <label for="can_party">  PARTY SYMBOL :</label>
@@ -44,7 +44,7 @@
      <br>
         <label for="num">   Enter Candidate Serial  Number To Delete:</label>
          <input type="number" style="width: 250px; padding:7px"  id="num" placeholder="(Ex: 6)" name="num" required><br><br>
-        <button type="submit"  style="height: 40px;width:100px;margin-left:100px;border-radius:5px">DELETE</button>
+        <button type="submit" id="bt" style="height: 40px;width:100px;margin-left:100px;border-radius:5px;">DELETE</button>
     </form>
     </div>
 </div>
@@ -54,38 +54,38 @@
 <div id="coo" class="coo">
 
 <div class="input_time">
-    <h2 style="margin-left: 7px; color:rgba(134, 95, 11, 0.913)">Update Time:</h2><br>
+    <h2 style=" color:rgba(134, 95, 11, 0.913)">Update Time:</h2><br>
     <form  action="admin" method="post">
-        <label for="day">DAY:</label>
-    <input  type="number"id=day name="day"  style="width: 100px;padding:7px;border-radius:5px; border:1.5px solid black;" max="31"   required><br><br>
-    <label for="hr">HOUR:</label>
-    <input  type="number"  id="hr" name="hr" style="width: 100px;padding:7px;border-radius:5px; border:1.5px solid black;" max="23" required><br><br>
+        <label for="day"  >DAY:</label>
+    <input  type="number"id=day name="day"  style="width: 100px;padding:7px;border-radius:5px;border:none;" max="31"   required><br><br>
+    <label for="hr"  >HOUR:</label>
+    <input  type="number"  id="hr" name="hr" style="width: 100px;padding:7px;border-radius:5px;border:none;" max="23" required><br><br>
        <label for="min">MIN:</label>
-    <input type="number"  id="min" name="min" style="width: 100px;padding:7px;border-radius:5px; border:1.5px solid black;" max="59" required><br><br>
+    <input type="number"  id="min" name="min" style="width: 100px;padding:7px;border-radius:5px;border:none;" max="59" required><br><br>
        <label for="sec">SEC:</label>
-    <input type="number"   id="sec" name="sec" style="width: 100px;padding:7px;border-radius:5px; border:1.5px solid black;" max="59" required><br><br>
-    <button type="submit" style="height: 40px;width:100px;border-radius:5px">  START</button>
+    <input type="number"   id="sec" name="sec" style="width: 100px;padding:7px;border-radius:5px;border:none;" max="59" required><br><br>
+    <button type="submit" id="bt" style="height: 40px;width:100px;border-radius:5px;margin-left:55px">  START</button>
 </form>
 </div>
 
 <div class="dis_time">
-    <h2>VOTING ENDS BEFORE:</h2><br>
+    <h2 style=" color:rgba(134, 95, 11, 0.913);">Voting Ends Before: </h2><br>
    
 
          {{#each datat}}
-           DAY: {{this.day}}
-            HR:{{this.hr}}
-            MIN:{{this.min}}
-            SEC{{this.sec}}
+           DAY: {{this.day}}<br>
+            HR: {{this.hr}}<br>
+            MIN: {{this.min}}<br>
+            SEC: {{this.sec}}<br>
         {{/each}}
 </div>
 
 
 <div class="dlt_time">
 <form action="admin" method="post">
-    <label ><h2>DELETE   PREVIOUS TIME BEFORE UPDATING  NEW TIME:</h2></label>
+    <label  style="width: 200px; text-align:center;height:90px"><h2 style=" color:rgba(134, 95, 11, 0.913)">Delete   Previous Time Before Updating  New Time:</h2></label>
 <input  type="hidden" value="10"  name="dlt_time"><br><br>
-<button type="submit"  style="height: 40px;width:100px;margin-left:100px;border-radius:5px">DELETE_TIME</button>
+<button type="submit" id="bt" style="height: 40px;width:105px;margin-left:100px;border-radius:5px;">DELETE_TIME</button>
 </form>
 </div>
 
@@ -139,8 +139,8 @@
 <div class="feed_dlt">
 <form action="admin" method="post">
     <label for="dlt"><h2 >DELETE FEEDBACK ------USER ID :</h2></label>
-<input  type="number" id="dlt" style="width: 150px;padding:7px;border-radius:5px; border:1.5px solid black;"   name="feed"><br><br>
-<button type="submit"  style="height: 40px;width:110px;border-radius:5px">DELETE_FEED</button>
+<input  type="number" id="dlt" style="width: 150px;padding:7px;border-radius:5px;border:none;"   name="feed"><br><br>
+<button type="submit" id="bt"  style="height: 40px;width:110px;border-radius:5px">DELETE_FEED</button>
 </form>
 
 </div>

@@ -122,24 +122,7 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
                 }
             
             if (result) {
-                console.log("ooo")
-                // sql.query("SELECT * from time ", (err, result1) => {
-                //     if(result1.length>0){
-                //         sql.query("SELECT * from time ,candidates", (err, result) => {
-                //             if (result) {
-                //                res.render("admin",{data:result,day:result[0].day,
-                //                    hr:result[0].hr,min:result[0].min,sec:result[0].sec})
-                                   
-                //            }
-                //            console.log(err)})
-                //     }
-                //     else{
-                //         sql.query("SELECT * from candidates", (err, result) => {
-                //             if (result) {
-                //                res.render("admin",{data:result})}})
-                
-                //     }
-                //    })
+   
                 sql.query("SELECT * from time ", (err, result1) => {
                     if(result1){
                         sql.query("SELECT * from candidates", (err, result) => {
@@ -178,23 +161,7 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
     if(time!=undefined){
         sql.query("DELETE  FROM time",(err,result)=>{
             if(result){
-                // sql.query("SELECT * from time ", (err, result1) => {
-                //     if(result1.length>0){
-                //         sql.query("SELECT * from time ,candidates", (err, result) => {
-                //             if (result) {
-                //                res.render("admin",{data:result,day:result[0].day,
-                //                    hr:result[0].hr,min:result[0].min,sec:result[0].sec})
-                                   
-                //            }
-                //            console.log(err)})
-                //     }
-                //     else{
-                //         sql.query("SELECT * from candidates", (err, result) => {
-                //             if (result) {
-                //                res.render("admin",{data:result})}})
                 
-                //     }
-                //    })
                 sql.query("SELECT * from time ", (err, result1) => {
                     if(result1){
                         sql.query("SELECT * from candidates", (err, result) => {
@@ -272,18 +239,7 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
     console.log(dltcan)
     if(dltcan!=undefined){
         sql.query("SELECT * from time ", (err, result1) => {
-            // if(result1.length>0){
-            //     sql.query("SELECT * from time ,candidates", (err, result) => {
-            //         if (result) {
-            //            res.render("admin",{data:result,day:result[0].day,
-            //                hr:result[0].hr,min:result[0].min,sec:result[0].sec,note:"VOTING HAS STARTED ...you cannot dlt"})
-                           
-            //        }
-                
-            //     })
-                
-            //     }
-            // sql.query("SELECT * from time ", (err, result1) => {
+  
                 if(result1.length>0){
                     sql.query("SELECT * from candidates", (err, result) => {
                         console.log(result)
@@ -301,11 +257,7 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
                     sql.query("DELETE  FROM candidates WHERE idno=? ",[dltcan],(err,result)=>{
                         if(result){
 
-                        // sql.query("SELECT * from candidates", (err, result) => {
-                        //             if (result) {
-                        //                res.render("admin",{data:result})}
-                                    
-                        //             })
+            
                         sql.query("SELECT * from time ", (err, result1) => {
                             if(result1){
                                 sql.query("SELECT * from candidates", (err, result) => {
@@ -379,16 +331,7 @@ const dltfeed=req.body.feed;
     
     if(req.body.can_num!=undefined){
         sql.query("SELECT * from time ", (err, result1) => {
-            // if(result1.length>0){
-            //     sql.query("SELECT * from time ,candidates", (err, result) => {
-            //         if (result) {
-            //            res.render("admin",{data:result,day:result[0].day,
-            //                hr:result[0].hr,min:result[0].min,sec:result[0].sec,note:"VOTING HAS STARTED ...CANNOT ADD CANDIDATES"})
-                           
-            //        }
-            //        console.log(err)})
-            // }
-            // sql.query("SELECT * from time ", (err, result1) => {
+
                 if(result1.length>0){
                     sql.query("SELECT * from candidates", (err, result) => {
                         console.log(result)
@@ -401,7 +344,6 @@ const dltfeed=req.body.feed;
                                 }})     }
                        console.log(err)})
                 }
-                // console.log(err)})
         
         else{
 
@@ -410,17 +352,10 @@ const dltfeed=req.body.feed;
             const picid2 =req.files[1].buffer.toString("base64");
             const num=req.body.can_num;
             const name=req.body.can_name;
-          
-            // console.log(picid)
+     
             sql.query(" INSERT INTO candidates (idno,name,votes,image,symbol) VALUES (?,?,?,?,?)",[num,name,0,picid1,picid2], (err, result) => {
                 if (result) {
-                    // sql.query("SELECT * from candidates", (err, result) => {
-                    //                 if (result) {
-                    //                     console.log(result)
-                    //                    res.render("admin",{data:result})}
-                    //                 if(err){
-                    //                     console.log(err)
-                    //                 }})
+ 
                     sql.query("SELECT * from time ", (err, result1) => {
                         if(result1){
                             sql.query("SELECT * from candidates", (err, result) => {
@@ -549,7 +484,6 @@ app.post("/index", urlencodedparser, (req, res) => {
                             console.log("enterrr")
                             res.sendFile(__dirname+"/public/index.html");
                         } else {
-                            // res.sendFile(__dirname+"/public/index.html");
                         }
                     })
                    }
