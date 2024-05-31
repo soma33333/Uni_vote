@@ -3,7 +3,7 @@ body{
     cursor: default;
 }
 #feed{
-    height: 500px;
+    height: fit-content;
     width: 70%;
     padding: 2vmin;
     border-radius: 2%;
@@ -18,19 +18,7 @@ pre{
     top: 50px;
     left: 35%;
 }
-#logobox{
-    height: 10%;
-    width: 55%;
-    padding: 2%;
-    overflow: hidden;
-}
-#logo{
-    background-image: url('../image/logo.webp');
-    background-size: cover;
-    padding-bottom: 1%;
-    height: 90%;
-    width: 34%;
-}
+
 #tb{
     position: fixed;
     top: 200px;

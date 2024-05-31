@@ -21,11 +21,13 @@ app.set("view engine", "hbs");
 app.use(express.static('public'))
 
 app.get("", (req, res) => {
-    res.sendFile(__dirname+"/public/index.html");
+    // res.sendFile(__dirname+"/public/index.html");
+    res.render("index");
 });
 
 app.get("/index", (req, res) => {
-    res.sendFile(__dirname+"/public/index.html");
+    // res.sendFile(__dirname+"/public/index.html");
+    res.render("index");
 });
 
 
@@ -45,21 +47,20 @@ app.get("/admin", (req, res) => {
 
    sql.query("SELECT * from time ", (err, result1) => {
     if(result1){
-        sql.query("SELECT * from candidates", (err, result2) => {
-           
+        sql.query("SELECT * from candidates", (err, result2) => {      
             if (result2) {
-               
                 sql.query("SELECT * FROM feedback", (err, result3) => {
                     if (result2) {
-                        res.render("admin",{data1:result2,data2:result3,datat:result1})
+                        sql.query("SELECT * FROM registration", (err, result4) => {
+                            if (result4) {
+                                res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                            }})                        
                     }})     }
            console.log(err)})
     }
     console.log(err)})
 
    })
-
-
 
 
 app.get("/done", (req, res) => {
@@ -79,7 +80,6 @@ app.get('/data', (req, res) => {
         res.status(500).json({ error: 'Error querying database' });
         return;
       }
-      console.log(results)
       res.json(results);
     });
   });
@@ -88,8 +88,97 @@ app.get('/data', (req, res) => {
 
 
 
+
+
 //ADMIN
 app.post("/admin", urlencodedparser, upload.array("pic",2), (req, res) => {
+
+    const u_usn=req.body.usn;
+    const u_email=req.body.u_email;
+     if(u_usn!==undefined && u_email!=undefined){
+        sql.query('UPDATE registration SET email = ? WHERE USN = ?',[u_email,u_usn], (err, result) => {
+            if (result) {
+                sql.query("SELECT * from time ", (err, result1) => {
+                    if(result1){
+                        sql.query("SELECT * from candidates", (err, result2) => {      
+                            if (result2) {
+                                sql.query("SELECT * FROM feedback", (err, result3) => {
+                                    if (result2) {
+                                        sql.query("SELECT * FROM registration", (err, result4) => {
+                                            if (result4) {
+                                                res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                            }})                        
+                                    }})     }
+                           console.log(err)})
+                    }
+                    console.log(err)})
+            
+            }})
+
+     }
+
+     const n_usn=req.body.n_usn;
+     const u_name=req.body.u_name;
+     if(n_usn!==undefined && u_name!=undefined){
+        sql.query('UPDATE registration SET name = ? WHERE USN = ?',[u_name,n_usn], (err, result) => {
+            if (result) {
+                sql.query("SELECT * from time ", (err, result1) => {
+                    if(result1){
+                        sql.query("SELECT * from candidates", (err, result2) => {      
+                            if (result2) {
+                                sql.query("SELECT * FROM feedback", (err, result3) => {
+                                    if (result2) {
+                                        sql.query("SELECT * FROM registration", (err, result4) => {
+                                            if (result4) {
+                                                res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                            }})                        
+                                    }})     }
+                           console.log(err)})
+                    }
+                    console.log(err)})
+            
+            }})
+
+     }
+
+     const reset=req.body.reset;
+     console.log(reset)
+    if(reset==20){
+        console.log("p")
+        sql.query('UPDATE registration SET voted = 0 ', (err, result) => {
+
+            if (result) {
+                console.log("pp")
+                sql.query("SELECT * from time ", (err, result1) => {
+                    if(result1){
+                        sql.query("SELECT * from candidates", (err, result2) => {      
+                            if (result2) {
+                                sql.query("SELECT * FROM feedback", (err, result3) => {
+                                    if (result2) {
+                                        sql.query("SELECT * FROM registration", (err, result4) => {
+                                            if (result4) {
+                                                res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                            }})                        
+                                    }})     }
+                           console.log(err)})
+                    }
+                    console.log(err)})
+
+            }if(err){
+                console.log(err)
+            }
+        })
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 const admin_id = req.body.admin_id;
@@ -125,14 +214,14 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
    
                 sql.query("SELECT * from time ", (err, result1) => {
                     if(result1){
-                        sql.query("SELECT * from candidates", (err, result) => {
-                            console.log(result)
-                            if (result) {
-                                console.log("can");
-                                sql.query("SELECT * FROM feedback", (err, result2) => {
+                        sql.query("SELECT * from candidates", (err, result2) => {      
+                            if (result2) {
+                                sql.query("SELECT * FROM feedback", (err, result3) => {
                                     if (result2) {
-                                        console.log("feed");
-                                        res.render("admin",{data1:result,data2:result2,datat:result1})
+                                        sql.query("SELECT * FROM registration", (err, result4) => {
+                                            if (result4) {
+                                                res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                            }})                        
                                     }})     }
                            console.log(err)})
                     }
@@ -147,7 +236,6 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
 
         } else {
             // Passwords don't match, authentication failed
-            console.log("pp")
             console.log('Passwords do not match! Authentication failed.');
         }
         });
@@ -164,14 +252,14 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
                 
                 sql.query("SELECT * from time ", (err, result1) => {
                     if(result1){
-                        sql.query("SELECT * from candidates", (err, result) => {
-                            console.log(result)
-                            if (result) {
-                                console.log("can");
-                                sql.query("SELECT * FROM feedback", (err, result2) => {
+                        sql.query("SELECT * from candidates", (err, result2) => {      
+                            if (result2) {
+                                sql.query("SELECT * FROM feedback", (err, result3) => {
                                     if (result2) {
-                                        console.log("feed");
-                                        res.render("admin",{data1:result,data2:result2,datat:result1})
+                                        sql.query("SELECT * FROM registration", (err, result4) => {
+                                            if (result4) {
+                                                res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                            }})                        
                                     }})     }
                            console.log(err)})
                     }
@@ -191,14 +279,14 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
 
                         sql.query("SELECT * from time ", (err, result1) => {
                             if(result1){
-                                sql.query("SELECT * from candidates", (err, result) => {
-                                    console.log(result)
-                                    if (result) {
-                                        console.log("can");
-                                        sql.query("SELECT * FROM feedback", (err, result2) => {
+                                sql.query("SELECT * from candidates", (err, result2) => {      
+                                    if (result2) {
+                                        sql.query("SELECT * FROM feedback", (err, result3) => {
                                             if (result2) {
-                                                console.log("feed");
-                                                res.render("admin",{data1:result,data2:result2,datat:result1,note:"VOTING HAS ALREADY BEGUN!   CANDIDATE LIST CANNOT BE MODIFIED! "})
+                                                sql.query("SELECT * FROM registration", (err, result4) => {
+                                                    if (result4) {
+                                                        res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                                    }})                        
                                             }})     }
                                    console.log(err)})
                             }
@@ -211,14 +299,14 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
             
                             sql.query("SELECT * from time ", (err, result1) => {
                                 if(result1){
-                                    sql.query("SELECT * from candidates", (err, result) => {
-                                        console.log(result)
-                                        if (result) {
-                                            console.log("can");
-                                            sql.query("SELECT * FROM feedback", (err, result2) => {
+                                    sql.query("SELECT * from candidates", (err, result2) => {      
+                                        if (result2) {
+                                            sql.query("SELECT * FROM feedback", (err, result3) => {
                                                 if (result2) {
-                                                    console.log("feed");
-                                                    res.render("admin",{data1:result,data2:result2,datat:result1})
+                                                    sql.query("SELECT * FROM registration", (err, result4) => {
+                                                        if (result4) {
+                                                            res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                                        }})                        
                                                 }})     }
                                        console.log(err)})
                                 }
@@ -242,13 +330,15 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
   
                 if(result1.length>0){
                     sql.query("SELECT * from candidates", (err, result) => {
-                        console.log(result)
                         if (result) {
-                            console.log("can");
                             sql.query("SELECT * FROM feedback", (err, result2) => {
                                 if (result2) {
-                                    console.log("feed");
-                                    res.render("admin",{data1:result,data2:result2,datat:result1,note:"VOTING HAS ALREADY BEGUN!   CANDIDATE LIST CANNOT BE MODIFIED! "})
+                                    sql.query("SELECT * registration", (err, result4) => {
+                                        if(result4){
+                                            res.render("admin",{data1:result,data2:result2,datat:result1,data4:result4,note:"VOTING HAS ALREADY BEGUN!   CANDIDATE LIST CANNOT BE MODIFIED! "})
+                                        }
+                                    })
+                                    
                                 }})     }
                        console.log(err)})
                 }
@@ -256,23 +346,21 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
             else{
                     sql.query("DELETE  FROM candidates WHERE idno=? ",[dltcan],(err,result)=>{
                         if(result){
-
-            
-                        sql.query("SELECT * from time ", (err, result1) => {
-                            if(result1){
-                                sql.query("SELECT * from candidates", (err, result) => {
-                                    console.log(result)
-                                    if (result) {
-                                        console.log("can");
-                                        sql.query("SELECT * FROM feedback", (err, result2) => {
-                                            if (result2) {
-                                                console.log("feed");
-                                                res.render("admin",{data1:result,data2:result2,datat:result1})
-                                            }})     }
-                                   console.log(err)})
-                            }
-                            console.log(err)})
-
+                            sql.query("SELECT * from time ", (err, result1) => {
+                                if(result1){
+                                    sql.query("SELECT * from candidates", (err, result2) => {      
+                                        if (result2) {
+                                            sql.query("SELECT * FROM feedback", (err, result3) => {
+                                                if (result2) {
+                                                    sql.query("SELECT * FROM registration", (err, result4) => {
+                                                        if (result4) {
+                                                            res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                                        }})                        
+                                                }})     }
+                                       console.log(err)})
+                                }
+                                console.log(err)})
+                           
                         }})
                     
                    }
@@ -281,21 +369,20 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
 
 
 ///DLT FEED
-
-
 const dltfeed=req.body.feed;
     if(dltfeed!=undefined){
         sql.query("SELECT * from time ", (err, result1) => {
-            
                 if(result1.length>0){
                     sql.query("SELECT * from candidates", (err, result) => {
-                        console.log(result)
                         if (result) {
-                            console.log("can");
                             sql.query("SELECT * FROM feedback", (err, result2) => {
                                 if (result2) {
-                                    console.log("feed");
-                                    res.render("admin",{data1:result,data2:result2,datat:result1,note:"cannnot"})
+                                    sql.query("SELECT * FROM registration", (err, result4) => {
+                                        if(result4){
+                                            res.render("admin",{data1:result,data2:result2,datat:result1,data4:result4,note:"cannnot"})
+                                        }
+                                    })
+                                   
                                 }})     }
                        console.log(err)})
                 }
@@ -303,19 +390,20 @@ const dltfeed=req.body.feed;
             else{
                     sql.query("DELETE  FROM feedback WHERE feedid=? ",[dltfeed],(err,result)=>{
                         if(result){
-                        sql.query("SELECT * from time ", (err, result1) => {
-                            if(result1){
-                                sql.query("SELECT * from candidates", (err, result) => {
-                                    console.log(result)
-                                    if (result) {
-                                        sql.query("SELECT * FROM feedback", (err, result2) => {
-                                            if (result2) {
-                                                console.log("feed");
-                                                res.render("admin",{data1:result,data2:result2,datat:result1})
-                                            }})     }
-                                   console.log(err)})
-                            }
-                            console.log(err)})
+                            sql.query("SELECT * from time ", (err, result1) => {
+                                if(result1){
+                                    sql.query("SELECT * from candidates", (err, result2) => {      
+                                        if (result2) {
+                                            sql.query("SELECT * FROM feedback", (err, result3) => {
+                                                if (result2) {
+                                                    sql.query("SELECT * FROM registration", (err, result4) => {
+                                                        if (result4) {
+                                                            res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                                        }})                        
+                                                }})     }
+                                       console.log(err)})
+                                }
+                                console.log(err)})
 
                         }})
                     
@@ -334,13 +422,15 @@ const dltfeed=req.body.feed;
 
                 if(result1.length>0){
                     sql.query("SELECT * from candidates", (err, result) => {
-                        console.log(result)
                         if (result) {
-                            console.log("can");
                             sql.query("SELECT * FROM feedback", (err, result2) => {
                                 if (result2) {
-                                    console.log("feed");
-                                    res.render("admin",{data1:result,data2:result2,datat:result1,note:"jjjgdshjio"})
+                                    sql.query("SELECT * FROM registration", (err, result4) => {
+                                        if(result4){
+                                            res.render("admin",{data1:result,data2:result2,datat:result1,data4:result4,note:"jjjgdshjio"})
+                                        }
+                                    })
+                                   
                                 }})     }
                        console.log(err)})
                 }
@@ -358,14 +448,14 @@ const dltfeed=req.body.feed;
  
                     sql.query("SELECT * from time ", (err, result1) => {
                         if(result1){
-                            sql.query("SELECT * from candidates", (err, result) => {
-                                console.log(result)
-                                if (result) {
-                                    console.log("can");
-                                    sql.query("SELECT * FROM feedback", (err, result2) => {
+                            sql.query("SELECT * from candidates", (err, result2) => {      
+                                if (result2) {
+                                    sql.query("SELECT * FROM feedback", (err, result3) => {
                                         if (result2) {
-                                            console.log("feed");
-                                            res.render("admin",{data1:result,data2:result2,datat:result1})
+                                            sql.query("SELECT * FROM registration", (err, result4) => {
+                                                if (result4) {
+                                                    res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+                                                }})                        
                                         }})     }
                                console.log(err)})
                         }
@@ -383,19 +473,166 @@ const dltfeed=req.body.feed;
 })
 
 
+/////
+
+
+
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+var gotp;
+// Define a route that handles the POST request
+app.post('/api/sendData', (req, res) => {
+  const data = req.body;
+
+  sql.query("SELECT * FROM registration WHERE email=?",[data.email] ,(err, result) => {
+    if (result.length>0) {
+            console.log(result)
+            var receiver=data.email;
+            email(receiver);
+            var result = "OTP SENT (regenerate  OTP after 20s)";
+            res.json({ result });
+    }
+    else{
+        const result = "Invalid Email Id";
+        res.json({ result });  
+    }})
+
+});
+
+
+//EMAILLLLLLLLL
+function  email(receiver){
+    console.log("oo")
+        const nodemailer=require("nodemailer")
+        const {google}=require('googleapis')
+        const config=require('./config.js')
+        const OAuth2=google.auth.OAuth2
+
+        const  OAuth2_client=new OAuth2(config.clientId,config.clientSecret)
+        OAuth2_client.setCredentials({refresh_token:config.refreshToken})
+
+function send_mail(recipient){
+    const accessToken=OAuth2_client.getAccessToken()
+    const transport=nodemailer.createTransport({
+        service:'gmail',
+        auth:{
+            type:'OAUTH2',
+            user:config.user,
+            clientId:config.clientId,
+            clientSecret:config.clientSecret,
+            refreshToken:config.refreshToken,
+            accessToken:accessToken
+        }
+    })
+
+    const mail_options={
+        from:`${config.user}`,
+        to:recipient,
+        subject:'OTP FROM UNI_VOTE',
+        text:get_html_message()
+    }
+    transport.sendMail(mail_options, (error, info) => {
+        if (error) {
+        console.log(error);
+        }
+        else{
+            console.log('Message sent: %s', info.messageId);
+
+        }
+        transport.close()
+      });
+}
+
+
+function generateFourDigitRandomNumber() {
+    const randomNumber = Math.floor(100000 + Math.random() * 900000);
+    gotp=randomNumber;
+    return randomNumber;
+}
+
+
+var randomFourDigitNumber = generateFourDigitRandomNumber();
+function get_html_message(){
+    var otp=randomFourDigitNumber.toString()
+    return `your OTP code is: ${otp}. Please do not share this code with anyone`
+}
+
+send_mail(receiver)
+}
+
+
+
+
+
+
+
+
+
+//EMAIL-REGIS
+app.post('/api/regData', (req, res) => {
+    const data = req.body;
+  
+    sql.query("SELECT * FROM registration WHERE email=?",[data.email] ,(err, result) => {
+      if (result.length>0) {
+             
+              var result = "Already Registered ";
+              res.json({ result });
+      }
+      else{
+          const result = "OTP SENT (regenerate OTP after 20s)";
+          email(data.email)
+          res.json({ result });  
+      }})
+  
+  });
 
 
 //REGISTER
 app.post("/index", urlencodedparser, (req, res) => {
+
+    const  f_email=req.body.f_email;
+    const  f_pass=req.body.f_pass;
+    const  f_conpass=req.body.f_conpass;
+    const otp=req.body.otp;
+
+    if(f_email!=undefined && f_pass!=undefined && f_conpass!=undefined){
+        if(f_pass==f_conpass){
+            if(otp==gotp){
+
+                bcrypt.genSalt(saltRounds, (err, salt) => {
+                    if (err) {
+                        // Handle error
+                        return;
+                    }
+                    if(salt){
+                        const userPassword = f_pass; // Replace with the actual password
+                        bcrypt.hash(userPassword, salt, (err, hash) => {
+                            if (err) {
+                                // Handle error
+                                return;
+                            }
+                            if(hash){
+
+                                sql.query('UPDATE registration SET password = ? WHERE email = ?',[hash,f_email], (err, result) => {
+                                    if (result) {
+                                        console.log("pass changed")}
+                                        res.sendFile(__dirname+"/public/index.html");
+                                        
+                                    })
+                                    }  });
+                                      }}); }}}
+                       
 
 
     var  hash_pass;
 
     const id = req.body.id;
     const name = req.body.name;
-    const phono = req.body.phoneno;
+    const email = req.body.email;
     const password = req.body.password;
     const conpassword = req.body.conpassword;
+    const u_otp=req.body.u_otp;
     const counter=0;
 
     const admin_id = req.body.admin_id;
@@ -432,8 +669,8 @@ app.post("/index", urlencodedparser, (req, res) => {
                                      (err, result) => {
                                          console.log("enter admin")
                                          if (result) {//if registration success ,allows  user to login
-                                             console.log("enterrradmin")
-                                             res.sendFile(__dirname+"/public/index.html");
+                                            //  res.sendFile(__dirname+"/public/index.html");
+                                            res.render("index",{msg:"Registration Successfull"});
                                          } 
                                      })
                                     }
@@ -461,40 +698,51 @@ app.post("/index", urlencodedparser, (req, res) => {
  
     //USER
     if (password == conpassword) {
-
-        bcrypt.genSalt(saltRounds, (err, salt) => {//This salt will be unique for each password hash, enhancing security:
-            if (err) {
-                // Handle error
-                return;
-            }
-            if(salt){
-                bcrypt.hash(password, salt, (err, hash) => {
-                    if (err) {
-                     // Handle error
+        if(u_otp==gotp){
+            console.log("reg")
+            bcrypt.genSalt(saltRounds, (err, salt) => {//This salt will be unique for each password hash, enhancing security:
+                if (err) {
+                    // Handle error
                     return;
-                   }
-                   if(hash){
-                    hash_pass=hash;
-                    
-                    console.log(hash_pass)
-                    sql.query("INSERT INTO registration (USN,name,phono,password,voted) VALUES (?,?,?,?,?)", [id, name, phono, hash_pass, counter],
-                    (err, result) => {
-                        console.log("ente")
-                        if (result) {//if registration success ,allows  user to login
-                            console.log("enterrr")
-                            res.sendFile(__dirname+"/public/index.html");
-                        } else {
-                        }
-                    })
-                   }
-          
-                  // Hashing successful, 'hash' contains the hashed password
-                  console.log('Hashed password:', hash);
-                      });
-          
-            }
-        
-        })
+                }
+                if(salt){
+                    bcrypt.hash(password, salt, (err, hash) => {
+                        if (err) {
+                         // Handle error
+                        return;
+                       }
+                       if(hash){
+                        hash_pass=hash;
+                        
+                        console.log(hash_pass)
+                        sql.query("INSERT INTO registration (USN,name,email,password,voted) VALUES (?,?,?,?,?)", [id, name,email , hash_pass, counter],
+                        (err, result) => {
+                            console.log("ente")
+                            if (result) {//if registration success ,allows  user to login
+                                console.log("enterrr")
+                                // console.log(result)
+                                // res.sendFile(__dirname+"/public/index.html");
+                                res.render("index",{msg:"Registration Successfull"});
+                            } 
+                            if(err){
+                                console.log(err)
+                            }else {
+                                
+                            }
+                        })
+                       }
+              
+                      // Hashing successful, 'hash' contains the hashed password
+                      console.log('Hashed password:', hash);
+                          });
+              
+                }
+            
+            })
+
+        }
+
+
 
 
     }
@@ -558,7 +806,8 @@ app.post("/welcome", urlencodedparser, (req, res) => {
                     }})
         }
         else{
-            res.sendFile(__dirname+"/public/index.html");
+            // res.sendFile(__dirname+"/public/index.html");
+            res.render("index");
         }
         })
 
@@ -584,8 +833,8 @@ app.post("/welcome", urlencodedparser, (req, res) => {
 
     });
        
-        
- 
+
+
 
 //FEEDBACK
 app.post("/done", urlencodedparser, (req, res) => {

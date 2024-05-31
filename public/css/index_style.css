@@ -113,3 +113,9 @@ label{
     line-height: 30px;
     
 }
+
+#welcome{
+    line-height: 35px;
+    font-style: oblique;
+    font-size: 20px;
+}
