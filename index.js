@@ -20,69 +20,76 @@ app.set("view engine", "hbs");
 //to use static files
 app.use(express.static('public'))
 
-app.get("", (req, res) => {
-    // res.sendFile(__dirname+"/public/index.html");
-    res.render("index");
-});
+// app.get("", (req, res) => {
+//     // res.sendFile(__dirname+"/public/index.html");
+//     res.render("index");
+// });
 
-app.get("/index", (req, res) => {
-    // res.sendFile(__dirname+"/public/index.html");
-    res.render("index");
-});
+// app.get("/index", (req, res) => {
+//     // res.sendFile(__dirname+"/public/index.html");
+//     res.render("index");
+// });
 
+const router=require("./router/data.js")
+app.use("/",router)
 
-app.get("/welcome", (req, res) => {
+const router1=require("./router/time.js")
+app.use("/",router1)
 
-    sql.query("SELECT * from candidates", (err, result) => {
-        if (result) {
-            res.render("welcome",{data:result})
-        }})
+const router2=require("./router/dltcan.js")
+app.use("/",router2)
+// app.get("/welcome", (req, res) => {
 
-});
+//     sql.query("SELECT * from candidates", (err, result) => {
+//         if (result) {
+//             res.render("welcome",{data:result})
+//         }})
 
-
-
-app.get("/admin", (req, res) => {
-
-
-   sql.query("SELECT * from time ", (err, result1) => {
-    if(result1){
-        sql.query("SELECT * from candidates", (err, result2) => {      
-            if (result2) {
-                sql.query("SELECT * FROM feedback", (err, result3) => {
-                    if (result2) {
-                        sql.query("SELECT * FROM registration", (err, result4) => {
-                            if (result4) {
-                                res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
-                            }})                        
-                    }})     }
-           console.log(err)})
-    }
-    console.log(err)})
-
-   })
+// });
 
 
-app.get("/done", (req, res) => {
-    a=[];
-    sql.query("SELECT * from feedback", (err, result) => {
-        if (result) {
-            res.render("done",{feeds:result}) 
-        }})
+
+// app.get("/admin", (req, res) => {
+
+
+//    sql.query("SELECT * from time ", (err, result1) => {
+//     if(result1){
+//         sql.query("SELECT * from candidates", (err, result2) => {      
+//             if (result2) {
+//                 sql.query("SELECT * FROM feedback", (err, result3) => {
+//                     if (result2) {
+//                         sql.query("SELECT * FROM registration", (err, result4) => {
+//                             if (result4) {
+//                                 res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+//                             }})                        
+//                     }})     }
+//            console.log(err)})
+//     }
+//     console.log(err)})
+
+//    })
+
+
+// app.get("/done", (req, res) => {
+//     a=[];
+//     sql.query("SELECT * from feedback", (err, result) => {
+//         if (result) {
+//             res.render("done",{feeds:result}) 
+//         }})
     
-});
+// });
 
-app.get('/data', (req, res) => {
-    sql.query("SELECT * from time", (err, results) => {
-        
-      if (err) {
-        console.error('Error querying database: ' + err.stack);
-        res.status(500).json({ error: 'Error querying database' });
-        return;
-      }
-      res.json(results);
-    });
-  });
+// app.get('/data', (req, res) => {
+    
+//     sql.query("SELECT * from time", (err, results) => {
+//       if (err) {
+//         console.error('Error querying database: ' + err.stack);
+//         res.status(500).json({ error: 'Error querying database' });
+//         return;
+//       }
+//       res.json(results);
+//     });
+//   });
 
 
 
@@ -269,102 +276,102 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
     }
 
 
-    const  day=req.body.day;
-    const  hr=req.body.hr;
-    const  min=req.body.min;
-    const  sec=req.body.sec;
-    if(hr!=undefined &&  min!=undefined && sec!=undefined){
-        sql.query("SELECT * from time ", (err, result1) => {
-                    if(result1.length>0){
+    // const  day=req.body.day;
+    // const  hr=req.body.hr;
+    // const  min=req.body.min;
+    // const  sec=req.body.sec;
+    // if(hr!=undefined &&  min!=undefined && sec!=undefined){
+    //     sql.query("SELECT * from time ", (err, result1) => {
+    //                 if(result1.length>0){
 
-                        sql.query("SELECT * from time ", (err, result1) => {
-                            if(result1){
-                                sql.query("SELECT * from candidates", (err, result2) => {      
-                                    if (result2) {
-                                        sql.query("SELECT * FROM feedback", (err, result3) => {
-                                            if (result2) {
-                                                sql.query("SELECT * FROM registration", (err, result4) => {
-                                                    if (result4) {
-                                                        res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
-                                                    }})                        
-                                            }})     }
-                                   console.log(err)})
-                            }
-                            console.log(err)})
+    //                     sql.query("SELECT * from time ", (err, result1) => {
+    //                         if(result1){
+    //                             sql.query("SELECT * from candidates", (err, result2) => {      
+    //                                 if (result2) {
+    //                                     sql.query("SELECT * FROM feedback", (err, result3) => {
+    //                                         if (result2) {
+    //                                             sql.query("SELECT * FROM registration", (err, result4) => {
+    //                                                 if (result4) {
+    //                                                     res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+    //                                                 }})                        
+    //                                         }})     }
+    //                                console.log(err)})
+    //                         }
+    //                         console.log(err)})
 
-                    }
-                else{
-                    sql.query("INSERT INTO time   (day,hr,min,sec) VALUES (?,?,?,?)  ",[day,hr,min,sec], (err, result) => {
-                        if (result) {
+    //                 }
+    //             else{
+    //                 sql.query("INSERT INTO time   (day,hr,min,sec) VALUES (?,?,?,?)  ",[day,hr,min,sec], (err, result) => {
+    //                     if (result) {
             
-                            sql.query("SELECT * from time ", (err, result1) => {
-                                if(result1){
-                                    sql.query("SELECT * from candidates", (err, result2) => {      
-                                        if (result2) {
-                                            sql.query("SELECT * FROM feedback", (err, result3) => {
-                                                if (result2) {
-                                                    sql.query("SELECT * FROM registration", (err, result4) => {
-                                                        if (result4) {
-                                                            res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
-                                                        }})                        
-                                                }})     }
-                                       console.log(err)})
-                                }
-                                console.log(err)})
-                        }
-                        if(err){
-                            console.log(err)
-                        }
-                    })
+    //                         sql.query("SELECT * from time ", (err, result1) => {
+    //                             if(result1){
+    //                                 sql.query("SELECT * from candidates", (err, result2) => {      
+    //                                     if (result2) {
+    //                                         sql.query("SELECT * FROM feedback", (err, result3) => {
+    //                                             if (result2) {
+    //                                                 sql.query("SELECT * FROM registration", (err, result4) => {
+    //                                                     if (result4) {
+    //                                                         res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+    //                                                     }})                        
+    //                                             }})     }
+    //                                    console.log(err)})
+    //                             }
+    //                             console.log(err)})
+    //                     }
+    //                     if(err){
+    //                         console.log(err)
+    //                     }
+    //                 })
 
-                }})
-
-
-    }
+    //             }})
 
 
-    const dltcan=req.body.num;
-    console.log(dltcan)
-    if(dltcan!=undefined){
-        sql.query("SELECT * from time ", (err, result1) => {
+    // }
+
+
+    // const dltcan=req.body.num;
+    // console.log(dltcan)
+    // if(dltcan!=undefined){
+    //     sql.query("SELECT * from time ", (err, result1) => {
   
-                if(result1.length>0){
-                    sql.query("SELECT * from candidates", (err, result) => {
-                        if (result) {
-                            sql.query("SELECT * FROM feedback", (err, result2) => {
-                                if (result2) {
-                                    sql.query("SELECT * registration", (err, result4) => {
-                                        if(result4){
-                                            res.render("admin",{data1:result,data2:result2,datat:result1,data4:result4,note:"VOTING HAS ALREADY BEGUN!   CANDIDATE LIST CANNOT BE MODIFIED! "})
-                                        }
-                                    })
+    //             if(result1.length>0){
+    //                 sql.query("SELECT * from candidates", (err, result) => {
+    //                     if (result) {
+    //                         sql.query("SELECT * FROM feedback", (err, result2) => {
+    //                             if (result2) {
+    //                                 sql.query("SELECT * registration", (err, result4) => {
+    //                                     if(result4){
+    //                                         res.render("admin",{data1:result,data2:result2,datat:result1,data4:result4,note:"VOTING HAS ALREADY BEGUN!   CANDIDATE LIST CANNOT BE MODIFIED! "})
+    //                                     }
+    //                                 })
                                     
-                                }})     }
-                       console.log(err)})
-                }
+    //                             }})     }
+    //                    console.log(err)})
+    //             }
                    
-            else{
-                    sql.query("DELETE  FROM candidates WHERE idno=? ",[dltcan],(err,result)=>{
-                        if(result){
-                            sql.query("SELECT * from time ", (err, result1) => {
-                                if(result1){
-                                    sql.query("SELECT * from candidates", (err, result2) => {      
-                                        if (result2) {
-                                            sql.query("SELECT * FROM feedback", (err, result3) => {
-                                                if (result2) {
-                                                    sql.query("SELECT * FROM registration", (err, result4) => {
-                                                        if (result4) {
-                                                            res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
-                                                        }})                        
-                                                }})     }
-                                       console.log(err)})
-                                }
-                                console.log(err)})
+    //         else{
+    //                 sql.query("DELETE  FROM candidates WHERE idno=? ",[dltcan],(err,result)=>{
+    //                     if(result){
+    //                         sql.query("SELECT * from time ", (err, result1) => {
+    //                             if(result1){
+    //                                 sql.query("SELECT * from candidates", (err, result2) => {      
+    //                                     if (result2) {
+    //                                         sql.query("SELECT * FROM feedback", (err, result3) => {
+    //                                             if (result2) {
+    //                                                 sql.query("SELECT * FROM registration", (err, result4) => {
+    //                                                     if (result4) {
+    //                                                         res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
+    //                                                     }})                        
+    //                                             }})     }
+    //                                    console.log(err)})
+    //                             }
+    //                             console.log(err)})
                            
-                        }})
+    //                     }})
                     
-                   }
-                })}
+    //                }
+    //             })}
 
 
 
@@ -630,6 +637,7 @@ app.post("/index", urlencodedparser, (req, res) => {
     const id = req.body.id;
     const name = req.body.name;
     const email = req.body.email;
+    const phone = req.body.phone;
     const password = req.body.password;
     const conpassword = req.body.conpassword;
     const u_otp=req.body.u_otp;
@@ -715,7 +723,7 @@ app.post("/index", urlencodedparser, (req, res) => {
                         hash_pass=hash;
                         
                         console.log(hash_pass)
-                        sql.query("INSERT INTO registration (USN,name,email,password,voted) VALUES (?,?,?,?,?)", [id, name,email , hash_pass, counter],
+                        sql.query("INSERT INTO registration (USN,name,email,phone,password,voted) VALUES (?,?,?,?,?,?)", [id, name,email ,phone, hash_pass, counter],
                         (err, result) => {
                             console.log("ente")
                             if (result) {//if registration success ,allows  user to login

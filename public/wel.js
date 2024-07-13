@@ -1,14 +1,52 @@
+const dltfeed=document.getElementById("dltfeed");
+
+const buttons=document.getElementById("buttons")
+
+
+const chname=document.getElementById("chname");
+const chemail=document.getElementById("chemail");
+const reset=document.getElementById("reset");
 
 
 
-    if(window.history.replaceState){
+
+function cname(){
+    buttons.style.marginTop="-80px"
+    chname.style.display="block"
+chemail.style.display="none"
+reset.style.display="none"
+}
+
+function cemail(){
+    buttons.style.marginTop="-80px"
+    chemail.style.display="block"
+    chname.style.display="none"
+reset.style.display="none"
+}
+function creset(){
+    buttons.style.marginTop="-80px"
+    reset.style.display="block"
+    chname.style.display="none"
+chemail.style.display="none"
+}
+
+
+
+
+
+function dlt(){
+    dltfeed.style.display="block";
+
+}
+
+if(window.history.replaceState){
         window.history.replaceState(null,null,window.location.href);
-    }
+ }
 
-            window.history.forward(); 
-            function noBack() { 
-                window.history.forward(); 
-            } 
+window.history.forward(); 
+        function noBack() { 
+           window.history.forward(); 
+    } 
 
 
 
@@ -18,7 +56,7 @@
             var sec;
             
 
-  
+  console.log("kkk")
             fetch('/data')
             .then(response => response.json())
             .then(data => {
@@ -27,6 +65,7 @@
                 min=data[0].min;
                 sec=data[0].sec;
           
+                console.log("cc1")
 
               const currentDate = new Date();
               const countDownDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day, hr,min,sec).getTime();
@@ -74,7 +113,10 @@
             });
           
 
-    
+            dltfeed.style.display="none";
+            chname.style.display="none"
+            chemail.style.display="none"
+            reset.style.display="none"
 
 
 

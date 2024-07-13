@@ -7,31 +7,31 @@
     <link rel="stylesheet"  href="/css/admin.css">
 </head>
 <body>
-   {{!-- <h1 style="text-align: center;"><i>ADMIN</i></h1> --}}
 
    <div class="navbar">
     <a class="navbut" style="text-decoration: none;"  href="#home">HOME</a>
     <a class="navbut" style="text-decoration: none;"  href="#table">LIST</a>
     <a class="navbut" style="text-decoration: none;"  href="#coo">TIME</a>
-    <a class="navbut" style="text-decoration: none;"  href="#feedcontrol">FEEDBACK</a>
+    <a class="navbut" style="text-decoration: none;"  href="#fd">FEEDBACK</a>
+    <a class="navbut" style="text-decoration: none;"  href="#uc">USER CONTROL</a>
     <a class="navbut" style="text-decoration: none;"  href="index.html">LOG OUT</a>
    </div>
-
+<br>
    <h1 style="color: rgb(223, 69, 69); text-align:center">{{note}}</h1>
     <div id="home" class="contain">
             
     <div class="caninfo">
     <form action="admin" enctype="multipart/form-data" method="post">
 
-        <label for="can_num">  SERIAL NO: </label>
+        <label for="can_num" style="display: inline-block;text-align:right;width:185px">  SERIAL NO: </label>
         <input  type="number"id=can_num name="can_num"  style="width: 250px; padding:7px;border:none;"  required><br><br>
         <label for="can_name">  CANDIDATE NAME:</label>
         <input type="text" name="can_name" id="can_name"   style="width: 250px; padding:7px ;border:none;" required><br><br>
-        <label for="can_pic"> PROFILE PIC :</label>
+        <label for="can_pic" style="display: inline-block;text-align:right;width:185px"> PROFILE PIC :</label>
         <input type="file" id="can_pic" name="pic" required><br><br>
-        <label for="can_party">  PARTY SYMBOL :</label>
+        <label for="can_party" style="display: inline-block;text-align:right;width:185px">  PARTY SYMBOL :</label>
         <input type="file" id="can_party" name="pic" required><br><br>
-        <button type="submit" id="bt" style="height: 40px;width:100px;margin-left:160px;border-radius:5px">UPLOAD</button>
+        <button type="submit" id="bt" style="height: 40px;width:100px;margin-left:185px;border-radius:5px">UPLOAD</button>
  
     </form>
     </div>
@@ -40,7 +40,7 @@
 
 
 <div class="can_dlt">
-   <form action="admin"  method="post">
+   <form id="formdlt" action="/dltcan"  method="post">
      <br>
         <label for="num">   Enter Candidate Serial  Number To Delete:</label>
          <input type="number" style="width: 250px; padding:7px"  id="num" placeholder="(Ex: 6)" name="num" required><br><br>
@@ -55,28 +55,30 @@
 
 <div class="input_time">
     <h2 style=" color:rgba(134, 95, 11, 0.913)">Update Time:</h2><br>
-    <form  action="admin" method="post">
-        <label for="day"  >DAY:</label>
-    <input  type="number"id=day name="day"  style="width: 100px;padding:7px;border-radius:5px;border:none;" max="31"   required><br><br>
-    <label for="hr"  >HOUR:</label>
+    <form  action="/time" method="post">
+
+    <label for="day" style="display: inline-block;text-align:right;width:50px"  >DAY:</label>
+    <input  type="number" id="day" name="day"  style="width: 100px;padding:7px;border-radius:5px;border:none;" max="31"   required><br><br>
+    
+    <label for="hr" style="display: inline-block;text-align:right;width:50px" >HOUR:</label>
     <input  type="number"  id="hr" name="hr" style="width: 100px;padding:7px;border-radius:5px;border:none;" max="23" required><br><br>
-       <label for="min">MIN:</label>
+       <label for="min" style="display: inline-block;text-align:right;width:50px">MIN:</label>
     <input type="number"  id="min" name="min" style="width: 100px;padding:7px;border-radius:5px;border:none;" max="59" required><br><br>
-       <label for="sec">SEC:</label>
+       <label for="sec" style="display: inline-block;text-align:right;width:50px">SEC:</label>
     <input type="number"   id="sec" name="sec" style="width: 100px;padding:7px;border-radius:5px;border:none;" max="59" required><br><br>
     <button type="submit" id="bt" style="height: 40px;width:100px;border-radius:5px;margin-left:55px">  START</button>
 </form>
 </div>
 
 <div class="dis_time">
-    <h2 style=" color:rgba(134, 95, 11, 0.913);">Voting Ends Before: </h2><br>
+    <h2 style=" color:rgba(134, 95, 11, 0.913);">Voting Ends Before: </h2><br><br>
    
 
          {{#each datat}}
-           DAY: {{this.day}}<br>
-            HR: {{this.hr}}<br>
-            MIN: {{this.min}}<br>
-            SEC: {{this.sec}}<br>
+           DAY : {{this.day}}d<br><br>
+            HR : {{this.hr}}hr<br><br>
+            MIN : {{this.min}}m<br><br>
+            SEC : {{this.sec}}s<br>
         {{/each}}
 </div>
 
@@ -120,7 +122,8 @@
 </table>
 </div>
 
-<h2 style="text-align: center; color:  rgba(134, 95, 11, 0.913);">FEEDBACK CONTROL</h2>
+<div  id="fd" style="height: 68px;width:100%; background-color: rgb(186, 196, 144);"></div>
+<h2  style="text-align: center; background-color: rgb(186, 196, 144);; margin:0px; color:  rgba(134, 95, 11, 0.913);">FEEDBACK CONTROL</h2>
 <div id="feedcontrol">
 
  
@@ -131,10 +134,12 @@
        
         {{/each}}
 
+        <button type="button" id="dltbutton"   style="height: 40px;width:110px;border-radius:5px" onclick="dlt()">DELETE_FEED</button>
+
 </div>
 
 
-<div class="feed_dlt">
+<div  id="dltfeed" class="feed_dlt">
 <form action="admin" method="post">
     <label for="dlt"><h2 >DELETE FEEDBACK ------USER ID :</h2></label>
 <input  type="number" id="dlt" style="width: 150px;padding:7px;border-radius:5px;border:none;"   name="feed"><br><br>
@@ -145,11 +150,10 @@
 </div>
 
 
-
+<div  id="uc" style="height: 68px;width:100%; background-color: rgb(186, 196, 144);"></div>
 <div class="user_control">
 
 <div class="user_details">
-
 <h2 style="margin-top: 0px;color:  rgba(90, 69, 4, 0.92);">CANDIDATES LIST</h2>
 <table id="tab">
     <tbody>
@@ -157,6 +161,7 @@
     <th>USN</th>
     <th>NAME</th>
     <th>EMAIL</th>
+    <th>PHONE-NO</th>
     <th>VOTED</th>
   </tr>
         {{#each data4}}
@@ -164,6 +169,7 @@
                 <td>{{this.USN}}</td>
                   <td>{{this.name}}</td>
                 <td>{{this.email}}</td>
+                <td>{{this.phone}}</td>
                  <td>{{this.voted}}</td>
                  
             </tr>
@@ -173,9 +179,26 @@
 
 </div>
 
+<div class="ch">
+<div id="buttons" class="change_but">
+<button type="button" id="btname"  class="cbut" style="height: 40px;width:110px;border-radius:5px" onclick="cname()">Change_Name</button>
+<button type="button" id="btemail" class="cbut"   style="height: 40px;width:110px;border-radius:5px" onclick="cemail()">Change_Email</button>
+<button type="button" id="btreset" class="cbut"   style="height: 40px;width:110px;border-radius:5px" onclick="creset()">Reset_votes</button>
+</div>
 
-<div class="user_change">
-    <div class="change">
+
+<div id="chname" >
+          
+         <form action="admin"  method="post">
+         <label for="1usn">   Enter USN To Change Name:</label><br>
+         <input type="number" style="width: 250px; padding:7px"  id="1usn" placeholder="(Ex: 6)" name="n_usn" required><br><br>
+         <label for="n_name">New_Name:</label><br>
+         <input type="text" id="n_name" name="u_name" style="width: 250px; padding:7px"  required><br><br>
+         <button type="submit" id="bt" style="height: 40px;width:100px;border-radius:5px;">Change</button>
+         </form>
+    </div>
+
+ <div id="chemail" >
   
          <form action="admin"  method="post">
          <label for="usn" >   Enter USN To Change Email:</label>
@@ -187,18 +210,7 @@
      
     </div>
 
-    <div class="change">
-          
-         <form action="admin"  method="post">
-         <label for="1usn">   Enter USN To Change Name:</label><br>
-         <input type="number" style="width: 250px; padding:7px"  id="1usn" placeholder="(Ex: 6)" name="n_usn" required><br><br>
-         <label for="n_name">New_Name:</label><br>
-         <input type="text" id="n_name" name="u_name" style="width: 250px; padding:7px"  required><br><br>
-         <button type="submit" id="bt" style="height: 40px;width:100px;border-radius:5px;">Change</button>
-         </form>
-    </div>
-
-    <div class="change">
+<div id="reset" >
    
          <form action="admin"  method="post">
          <label for="2num">   Reset All  User's Vote :</label>
@@ -207,15 +219,19 @@
          </form>
 
     </div>
-</div>
-
 
 </div>
 
 
+</div>
 
 
 
+
+
+
+
+<script src="wel.js"></script>
 
 </body>
 </html>

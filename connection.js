@@ -3,7 +3,7 @@ const  mysql=require("mysql")
 const sql=mysql.createConnection(
     {   host:"localhost",
         user:"root",
-        password:"3333",
+        password:"",
         database:"soma"
     });
 
