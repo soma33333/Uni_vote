@@ -513,11 +513,18 @@ function  email(receiver){
     console.log("oo")
         const nodemailer=require("nodemailer")
         const {google}=require('googleapis')
-        const config=require('./config.js')
+        // const config=require('./js')
+        require('dotenv').config();
+
+// Now you can access your variables
+const user = process.env.user;
+const clientId = process.env.clientId;
+const  clientSecret=process.env.clientSecret
+const  refreshToken=process.env.refreshToken
         const OAuth2=google.auth.OAuth2
 
-        const  OAuth2_client=new OAuth2(config.clientId,config.clientSecret)
-        OAuth2_client.setCredentials({refresh_token:config.refreshToken})
+        const  OAuth2_client=new OAuth2(clientId,clientSecret)
+        OAuth2_client.setCredentials({refresh_token:refreshToken})
 
 function send_mail(recipient){
     const accessToken=OAuth2_client.getAccessToken()
@@ -525,16 +532,16 @@ function send_mail(recipient){
         service:'gmail',
         auth:{
             type:'OAUTH2',
-            user:config.user,
-            clientId:config.clientId,
-            clientSecret:config.clientSecret,
-            refreshToken:config.refreshToken,
+            user:user,
+            clientId:clientId,
+            clientSecret:clientSecret,
+            refreshToken:refreshToken,
             accessToken:accessToken
         }
     })
 
     const mail_options={
-        from:`${config.user}`,
+        from:`${user}`,
         to:recipient,
         subject:'OTP FROM UNI_VOTE',
         text:get_html_message()
