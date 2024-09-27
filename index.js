@@ -38,58 +38,7 @@ app.use("/",router1)
 
 const router2=require("./router/dltcan.js")
 app.use("/",router2)
-// app.get("/welcome", (req, res) => {
 
-//     sql.query("SELECT * from candidates", (err, result) => {
-//         if (result) {
-//             res.render("welcome",{data:result})
-//         }})
-
-// });
-
-
-
-// app.get("/admin", (req, res) => {
-
-
-//    sql.query("SELECT * from time ", (err, result1) => {
-//     if(result1){
-//         sql.query("SELECT * from candidates", (err, result2) => {      
-//             if (result2) {
-//                 sql.query("SELECT * FROM feedback", (err, result3) => {
-//                     if (result2) {
-//                         sql.query("SELECT * FROM registration", (err, result4) => {
-//                             if (result4) {
-//                                 res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
-//                             }})                        
-//                     }})     }
-//            console.log(err)})
-//     }
-//     console.log(err)})
-
-//    })
-
-
-// app.get("/done", (req, res) => {
-//     a=[];
-//     sql.query("SELECT * from feedback", (err, result) => {
-//         if (result) {
-//             res.render("done",{feeds:result}) 
-//         }})
-    
-// });
-
-// app.get('/data', (req, res) => {
-    
-//     sql.query("SELECT * from time", (err, results) => {
-//       if (err) {
-//         console.error('Error querying database: ' + err.stack);
-//         res.status(500).json({ error: 'Error querying database' });
-//         return;
-//       }
-//       res.json(results);
-//     });
-//   });
 
 
 
@@ -176,12 +125,6 @@ app.post("/admin", urlencodedparser, upload.array("pic",2), (req, res) => {
             }
         })
     }
-
-
-
-
-
-
 
 
 
@@ -276,102 +219,6 @@ sql.query("SELECT * FROM admin WHERE  id=?  ", [admin_id], (err, result) => {
     }
 
 
-    // const  day=req.body.day;
-    // const  hr=req.body.hr;
-    // const  min=req.body.min;
-    // const  sec=req.body.sec;
-    // if(hr!=undefined &&  min!=undefined && sec!=undefined){
-    //     sql.query("SELECT * from time ", (err, result1) => {
-    //                 if(result1.length>0){
-
-    //                     sql.query("SELECT * from time ", (err, result1) => {
-    //                         if(result1){
-    //                             sql.query("SELECT * from candidates", (err, result2) => {      
-    //                                 if (result2) {
-    //                                     sql.query("SELECT * FROM feedback", (err, result3) => {
-    //                                         if (result2) {
-    //                                             sql.query("SELECT * FROM registration", (err, result4) => {
-    //                                                 if (result4) {
-    //                                                     res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
-    //                                                 }})                        
-    //                                         }})     }
-    //                                console.log(err)})
-    //                         }
-    //                         console.log(err)})
-
-    //                 }
-    //             else{
-    //                 sql.query("INSERT INTO time   (day,hr,min,sec) VALUES (?,?,?,?)  ",[day,hr,min,sec], (err, result) => {
-    //                     if (result) {
-            
-    //                         sql.query("SELECT * from time ", (err, result1) => {
-    //                             if(result1){
-    //                                 sql.query("SELECT * from candidates", (err, result2) => {      
-    //                                     if (result2) {
-    //                                         sql.query("SELECT * FROM feedback", (err, result3) => {
-    //                                             if (result2) {
-    //                                                 sql.query("SELECT * FROM registration", (err, result4) => {
-    //                                                     if (result4) {
-    //                                                         res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
-    //                                                     }})                        
-    //                                             }})     }
-    //                                    console.log(err)})
-    //                             }
-    //                             console.log(err)})
-    //                     }
-    //                     if(err){
-    //                         console.log(err)
-    //                     }
-    //                 })
-
-    //             }})
-
-
-    // }
-
-
-    // const dltcan=req.body.num;
-    // console.log(dltcan)
-    // if(dltcan!=undefined){
-    //     sql.query("SELECT * from time ", (err, result1) => {
-  
-    //             if(result1.length>0){
-    //                 sql.query("SELECT * from candidates", (err, result) => {
-    //                     if (result) {
-    //                         sql.query("SELECT * FROM feedback", (err, result2) => {
-    //                             if (result2) {
-    //                                 sql.query("SELECT * registration", (err, result4) => {
-    //                                     if(result4){
-    //                                         res.render("admin",{data1:result,data2:result2,datat:result1,data4:result4,note:"VOTING HAS ALREADY BEGUN!   CANDIDATE LIST CANNOT BE MODIFIED! "})
-    //                                     }
-    //                                 })
-                                    
-    //                             }})     }
-    //                    console.log(err)})
-    //             }
-                   
-    //         else{
-    //                 sql.query("DELETE  FROM candidates WHERE idno=? ",[dltcan],(err,result)=>{
-    //                     if(result){
-    //                         sql.query("SELECT * from time ", (err, result1) => {
-    //                             if(result1){
-    //                                 sql.query("SELECT * from candidates", (err, result2) => {      
-    //                                     if (result2) {
-    //                                         sql.query("SELECT * FROM feedback", (err, result3) => {
-    //                                             if (result2) {
-    //                                                 sql.query("SELECT * FROM registration", (err, result4) => {
-    //                                                     if (result4) {
-    //                                                         res.render("admin",{data1:result2,data2:result3,datat:result1,data4:result4})
-    //                                                     }})                        
-    //                                             }})     }
-    //                                    console.log(err)})
-    //                             }
-    //                             console.log(err)})
-                           
-    //                     }})
-                    
-    //                }
-    //             })}
 
 
 
@@ -512,41 +359,33 @@ app.post('/api/sendData', (req, res) => {
 function  email(receiver){
     console.log("oo")
         const nodemailer=require("nodemailer")
-        const {google}=require('googleapis')
+        // const {google}=require('googleapis')
         // const config=require('./js')
         require('dotenv').config();
 
-// Now you can access your variables
-const user = process.env.user;
-const clientId = process.env.clientId;
-const  clientSecret=process.env.clientSecret
-const  refreshToken=process.env.refreshToken
-        const OAuth2=google.auth.OAuth2
-
-        const  OAuth2_client=new OAuth2(clientId,clientSecret)
-        OAuth2_client.setCredentials({refresh_token:refreshToken})
 
 function send_mail(recipient){
-    const accessToken=OAuth2_client.getAccessToken()
-    const transport=nodemailer.createTransport({
-        service:'gmail',
-        auth:{
-            type:'OAUTH2',
-            user:user,
-            clientId:clientId,
-            clientSecret:clientSecret,
-            refreshToken:refreshToken,
-            accessToken:accessToken
-        }
-    })
+  
 
-    const mail_options={
-        from:`${user}`,
-        to:recipient,
-        subject:'OTP FROM UNI_VOTE',
-        text:get_html_message()
-    }
-    transport.sendMail(mail_options, (error, info) => {
+
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAIL_USER, // your email address from environment variables
+          pass: process.env.EMAIL_PASS  // your email password or an app-specific password from environment variables
+        }
+      });
+      
+      // Set up email data
+      const mail_options={
+            from:process.env.EMAIL_USER,
+            to:recipient,
+            subject:'OTP FROM UNI_VOTE',
+            text:get_html_message()
+        }
+      
+      // Send mail with defined transport object
+     transporter.sendMail(mail_options, (error, info) => {
         if (error) {
         console.log(error);
         }
@@ -554,7 +393,7 @@ function send_mail(recipient){
             console.log('Message sent: %s', info.messageId);
 
         }
-        transport.close()
+        transporter.close()
       });
 }
 
@@ -631,8 +470,8 @@ app.post("/index", urlencodedparser, (req, res) => {
                                 sql.query('UPDATE registration SET password = ? WHERE email = ?',[hash,f_email], (err, result) => {
                                     if (result) {
                                         console.log("pass changed")}
-                                        res.sendFile(__dirname+"/public/index.html");
-                                        
+                                        // res.sendFile(__dirname+"/public/index.html");
+                                        res.render("index")                                        
                                     })
                                     }  });
                                       }}); }}}
