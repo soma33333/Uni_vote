@@ -4,53 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-       <link rel="stylesheet" href="/css/donestyle.css"> 
+    <link rel="stylesheet" href="/css/donestyle.css"> 
 </head>
 <body>
 
 <div id="tb">
     <p>Voting Ends In</p>
-<p id="demo"></p>
+    <p id="demo"></p>
 </div>
 <form id="timer" action="welcome" method="post">
-    <input type="hidden"  name="time" value="3">
+    <input type="hidden" name="time" value="3">
 </form>
 
-        <pre>THANK YOU!   YOUR  VOTE IS COUNTED!!</pre>
+<h3 style="text-align: center;">THANK YOU! YOUR VOTE IS COUNTED!!</h3>
 
-   <form action="index.hbs" >
+<form action="index.hbs">
     <button type="submit" id="lo">LOGOUT</button>
-   </form>
-   </div>
+</form>
+</div>
 
 <div id="feed">
     <div id="logobox">
-    <div id="logo"></div>
-</div>
-<p id="w"></p>
-<form action="done" method="post">
-    <b style="font-size: 22px;color:rgba(134, 95, 11, 0.913);">Feedback:</b> <input type="text" id="fed" name="feed" height="100px" placeholder="type here">
-    <button type="submit" id="fb" >Submit</button>
-</form>
-<br>
-<hr>
-<form action="done" method="post">
-    <b style="font-size: 22px;color:rgba(134, 95, 11, 0.913);">To Delete Your Feedback:</b> <input type="hidden" name="del"   value="1">
-    <button type="submit" id="fb" onclick="loo()">Click Here</button>
-</form>
-<br>
+        <div id="logo"></div>
+    </div>
+    <p id="w"></p>
+    <form action="done" method="post">
+        <b class="feedback-label">Feedback:</b>
+        <input type="text" id="fed" name="feed" placeholder="type here">
+        <button type="submit" id="fb">Submit</button>
+    </form>
+    <br>
+    <hr>
+    <form action="done" method="post">
+        <b class="delete-feedback-label">To Delete Your Feedback:</b>
+        <input type="hidden" name="del" value="1">
+        <button type="submit" id="fb" onclick="loo()">Click Here</button>
+    </form>
+    <br>
 
-
-
-
-
-<ul class="feed">
-{{#each feeds}}
-<hr>
-<li id="li">    {{this.message}}</li>
-
-{{/each}}
-</ul>
+    <ul class="feed">
+        {{#each feeds}}
+        <hr>
+        <li id="li">{{this.message}}</li>
+        {{/each}}
+    </ul>
 </div>
 
 <script src="/wel.js"></script>

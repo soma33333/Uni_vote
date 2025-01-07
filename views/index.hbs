@@ -9,7 +9,7 @@
 <body>
     
 <div class="uni">
-    <h2 ><i>UniVote</i></h2>
+    <h2><i>UniVote</i></h2>
 </div>
 
 <div class="pic">
@@ -17,24 +17,24 @@
         <div class="left">
             <div>
                 <div id="time_msg">
-                    <p>NOTE: <span style="color: red;">VOTING  IS NOT YET STARTED...CANNOT LOGIN</span></p>
+                    <p>NOTE: <span class="note">VOTING IS NOT YET STARTED...CANNOT LOGIN</span></p>
                 </div>
                 <div id="reg_msg">
-                    <h2 style="color:rgba(212, 56, 12, 0.797);">{{msg}}</h2>
+                    <h2 class="msg">{{msg}}</h2>
                 </div>
 <br>
 <br>
                 <div id="adminn">
                     
-                        <button type="submit" id="ad" class="butt"     onclick="admin()">ADMIN</button><br><br>
+                        <button type="submit" id="ad" class="butt" onclick="admin()">ADMIN</button><br><br>
                  
-                    <button type="submit"  id="ar" class="butt"  onclick="myFunction2()">SIGN UP</button><br>
+                    <button type="submit" id="ar" class="butt" onclick="myFunction2()">SIGN UP</button><br>
                     <button type="submit" id="al" class="butt" onclick="myFunction1()">SIGN IN</button><br>
             
                 </div>
                 <div id="userr">
-                    <button type="submit"id="ur" class="butt" onclick="myFunction4()">SIGN UP</button><br>
-                    <button type="submit"  id="ul"  class="butt" onclick="myFunction3()">SIGN IN</button><br>
+                    <button type="submit" id="ur" class="butt" onclick="myFunction4()">SIGN UP</button><br>
+                    <button type="submit" id="ul" class="butt" onclick="myFunction3()">SIGN IN</button><br>
                     <button type="submit" id="us" class="butt" onclick="user()">USER</button><br><br>
   
                 </div>
@@ -44,124 +44,91 @@
 
 
         </div>
-        <div  class="right">
+        <div class="right">
 
             <form id="admin_login" action="admin" method="post">
-                <label for="aid" >ADMIN_ID:  </label>
-                <input type="text" id="aid" name="admin_id"  style="width: 220px;padding:5px;border-radius:5px; border-top: black;" required><br><br>
+                <label for="aid">ADMIN_ID:  </label>
+                <input type="text" id="aid" name="admin_id" class="input-field" required><br><br>
                 <label for="an">ADMIN_NAME:  </label>
-                <input type="text" id="an" name="admin_name"  style="width: 220px;padding:5px;border-radius:5px; border-top: black;" required><br><br>
+                <input type="text" id="an" name="admin_name" class="input-field" required><br><br>
                 <label for="ac">ADMIN_CODE:  </label>
-                <input type="text" id="ac" name="admin_code"  style="width: 220px;padding:5px;border-radius:5px; border-top: black;" required><br><br>
+                <input type="text" id="ac" name="admin_code" class="input-field" required><br><br>
                 <label for="pa"> PASSWORD: </label>
-                <input type="text" id="pa" name="admin_pass"  style="width: 220px;padding:5px;border-radius:5px; border-top: black;" required><br><br>
-                <p style="color: red;" id="admsg"></p>
-                <button type="submit" id="sub"  style="height: 40px;width:100px;margin-left:160px;border-radius:5px" onclick="setTimeout(validadmin,1000)">SUBMIT</button>
+                <input type="text" id="pa" name="admin_pass" class="input-field" required><br><br>
+                <p class="error-msg" id="admsg"></p>
+                <button type="submit" id="sub" class="submit-btn" onclick="setTimeout(validadmin,1000)">SUBMIT</button>
             </form>
 
-            <form id="admin_regis" action="index"  method="post">
+            <form id="admin_regis" action="index" method="post">
                 <label for="aid1"> ADMIN_ID: </label>
-                <input type="text" id="aid1" name="admin_id" style="width: 220px;padding:5px;border-radius:5px; border-top: black;" required><br><br>
+                <input type="text" id="aid1" name="admin_id" class="input-field" required><br><br>
                 <label for="an1"> ADMIN_NAME:</label>
-                 <input type="text" id="an1" name="admin_name" style="width: 220px;padding:5px;border-radius:5px;border-top: black;" required><br><br>
+                 <input type="text" id="an1" name="admin_name" class="input-field" required><br><br>
                  <label for="apo">ADMIN_PNO: </label>
-                <input type="number" id="apo" name="admin_pno" style="width: 220px;padding:5px;border-radius:5px; border-top: black;" maxlength="10" required><br><br>
+                <input type="number" id="apo" name="admin_pno" class="input-field" maxlength="10" required><br><br>
                 <label for="ac1">ADMIN_CODE:  </label>
-                <input type="text" id="ac1" name="admin_code" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  required><br><br>
-                <label  for="admin_pass11">  PASSWORD: </label>
-               <input type="text" name="admin_pass" id="admin_pass11" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  
-               title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" 
-               required><br><br>
+                <input type="text" id="ac1" name="admin_code" class="input-field" required><br><br>
+                <label for="admin_pass11">  PASSWORD: </label>
+               <input type="text" name="admin_pass" id="admin_pass11" class="input-field" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required><br><br>
                <label for="admin_pass2">  CONFIRM PASSWORD:  </label>
-              <input type="text" name="admin_con_pass" id="admin_pass2" style="padding:5px;border-radius:5px; border-top: black;"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  
-              title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" 
-              required><br><br>
-                <p style="color: red;" id="msg3"></p>
-                <button type="submit" id="sub" style="height: 40px;width:100px;margin-left:160px;border-radius:5px" onclick="valid2()" >SUBMIT</button>
-                
-
+              <input type="text" name="admin_con_pass" id="admin_pass2" class="input-field" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required><br><br>
+                <p class="error-msg" id="msg3"></p>
+                <button type="submit" id="sub" class="submit-btn" onclick="valid2()">SUBMIT</button>
             </form>
 
             <form id="user_login" action="welcome" method="post">
-                    <label for="un"> USN:</label>
-                    <input  type="number" id="un" name="id" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  required> <br><br>
-                    <label for="upa"> Passsword:</label>
-                    <input type="password" id="upa" name="password" id="pass1" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  required><br><br>
-                    <button id="fd"  onclick="change()">forgot password?</button>
-                    <p style="color: red;" id="msg21"></p>
-                   
-                    <button type="submit" id="sub"  style="height: 40px;width:100px;margin-left:160px;border-radius:5px" onclick="setTimeout(valid,1000)">SUBMIT</button>
-                    
-                </form>
+                <label for="un"> USN:</label>
+                <input type="number" id="un" name="id" class="input-field" required> <br><br>
+                <label for="upa"> Passsword:</label>
+                <input type="password" id="upa" name="password" class="input-field" required><br><br>
+                <button id="fd" onclick="change()">forgot password?</button>
+                <p class="error-msg" id="msg21"></p>
+                <button type="submit" id="sub" class="submit-btn" onclick="setTimeout(valid,1000)">SUBMIT</button>
+            </form>
 
-        
-
-            <form id="user_regis" style="text-align :center;padding:10px;" action="index" method="post">
-              
+            <form id="user_regis" style="text-align: center; padding: 10px;" action="index" method="post">
                 <label for="un1"> USN:</label>
-                <input type="number" name="id" id="un1" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  required> <br><br>
+                <input type="number" name="id" id="un1" class="input-field" required> <br><br>
                 <label for="name">  Name: </label>  
-                   <input type="text" name="name" id="name" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  required><br><br>
-                   <label for="email">Email:</label> 
-                   <input type="email" id="email"  name="email" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  pattern="^[0-9]{2}[A-Za-z]{4}[0-9]{6}@msruas\.ac\.in$"  title="EX: abc@msruas.ac.in" required><br><br>
-                    <label for="pho">Phone-No:</label> 
-                   <input  id="pho"  name="phone"  style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  max="10" required><br><br>
-                   <label for="pass1">Password:</label>
-                   <input type="password" name="password" id="pass1" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  minlength="6"   
-                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  
-                   title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" 
-                   required><br><br>
-                   <label for="pass2">   Confirm Password:</label>
-                <input type="password" name="conpassword" id="pass2" style="padding:5px;border-radius:5px; border-top: black;"  required><br><br>
-
-                <button type="button"  id="u_otpbut">GENERATE OTP</button><br>
-                <p  style="color: red;" id="result1"></p><br>
+                <input type="text" name="name" id="name" class="input-field" required><br><br>
+                <label for="email">Email:</label> 
+                <input type="email" id="email" name="email" class="input-field" pattern="^[0-9]{2}[A-Za-z]{4}[0-9]{6}@msruas\.ac\.in$" title="EX: abc@msruas.ac.in" required><br><br>
+                <label for="pho">Phone-No:</label> 
+                <input id="pho" name="phone" class="input-field" max="10" required><br><br>
+                <label for="pass1">Password:</label>
+                <input type="password" name="password" id="pass1" class="input-field" minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required><br><br>
+                <label for="pass2">   Confirm Password:</label>
+                <input type="password" name="conpassword" id="pass2" class="input-field" required><br><br>
+                <button type="button" id="u_otpbut">GENERATE OTP</button><br>
+                <p class="error-msg" id="result1"></p><br>
                 <label for="otp">Enter OTP: </label>
-                <input  type="number"  name="u_otp" id="u_otp" style="width: 220px;padding:5px;border-radius:5px; border-top: black;" required> <br><br>
-                <p style="color: red;" id="u_msg"></p>
+                <input type="number" name="u_otp" id="u_otp" class="input-field" required> <br><br>
+                <p class="error-msg" id="u_msg"></p>
+                <p class="error-msg" id="msg1"></p>
+                <button type="submit" id="sub" class="submit-btn" onclick="valid1()">SUBMIT</button>
+            </form>
 
-                   <p style="color: red;" id="msg1"></p>
-                   
-                    <button type="submit" id="sub"  style="height: 40px;width:100px;margin-left:160px;border-radius:5px" onclick="valid1()">SUBMIT</button>
-                    
-                </form>
-
-         <div id="welcome">
-            <p >Welcome to Univote, the premier platform for secure and transparent university elections. Participate confidently, knowing your vote is protected and your voice matters. Join your peers in shaping the future of our academic community with ease and integrity. Cast your vote with Univote today and make a meaningful impact on campus!</p>
-         </div>
-            
+            <div id="welcome">
+                <p>Welcome to Univote, the premier platform for secure and transparent university elections. Participate confidently, knowing your vote is protected and your voice matters. Join your peers in shaping the future of our academic community with ease and integrity. Cast your vote with Univote today and make a meaningful impact on campus!</p>
+            </div>
 
             <form id="forgot" action="index" method="post">
-
                 <label for="em">Registered_Email:</label>
-                <input id="em" name="f_email" type="email" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  required><br><br>
+                <input id="em" name="f_email" type="email" class="input-field" required><br><br>
                 <label for="np">New Password: </label>
-                <input type="password" name="f_pass" id="np" style="width: 220px;padding:5px;border-radius:5px; border-top: black;"  minlength="6"   
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  
-                title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" 
-                required><br><br>
-               
+                <input type="password" name="f_pass" id="np" class="input-field" minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required><br><br>
                 <label for="ncp">Confirm Password:</label>
-                <input type="password" name="f_conpass" id="ncp" style="padding:5px;border-radius:5px; border-top: black;"  required><br><br>
-                
-                
-                <button type="button"  id="otpbut">GENERATE OTP</button><br><br>
-                <p  style="color: red;" id="result"></p>
+                <input type="password" name="f_conpass" id="ncp" class="input-field" required><br><br>
+                <button type="button" id="otpbut">GENERATE OTP</button><br><br>
+                <p class="error-msg" id="result"></p>
                 <label for="otp">Enter OTP: </label>
-                <input  type="number"  name="otp" id="otp" style="width: 220px;padding:5px;border-radius:5px; border-top: black;" required> <br><br>
-                <p style="color: red;" id="c_msg"></p>
-
-               
-                <button type="submit" id="f_sub"  style="height: 40px;width:100px;margin-left:160px;border-radius:5px" >SUBMIT</button>
+                <input type="number" name="otp" id="otp" class="input-field" required> <br><br>
+                <p class="error-msg" id="c_msg"></p>
+                <button type="submit" id="f_sub" class="submit-btn">SUBMIT</button>
             </form>
-           
-
         </div>
-
     </div>
 </div>
-    <script src="/login_page.js"></script>
-
-
+<script src="/login_page.js"></script>
 </body>
 </html>

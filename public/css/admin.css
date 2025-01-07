@@ -1,302 +1,171 @@
-
-
-table, th, td {
-
-    background-color:  rgba(185, 170, 89, 0.071);
-  }
-
-
-table{
-    background-color: rgba(243, 240, 223, 0.792);
-    display: flex;
-    justify-content: center;
-   justify-content: space-evenly;
-    width: 100%;
-}
-
-th{
-    color: rgba(73, 53, 3, 0.792);;
-    width: 200px;
-    text-align: center;
-    font-size: 20px;
-    height: 80px;
-}
-td{
-    width: 300px;
-    text-align: center;
-}
-
-div.navbar{
-    position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  padding: 5px;
-}
-.navbar{
-    background-color: rgb(98, 104, 79);
-    height: 56px;
-    width:100%;    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-a:hover{
-    background-color: rgb(174, 172, 172);
-    color: rgb(41, 41, 73);
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #141313;
 }
 
 a{
-    text-align: center;
-    background-color: white;
-    color: rgb(41, 41, 73);
+    text-decoration: none;
+    color: #333;
+}
+
+h1, h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar styles */
+.navbar {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width:100px;
-
-   
-}
-
-
-
-.contain{
-    /* background-color: rgba(243, 240, 223, 0.792); */
-    background-color: rgb(186, 196, 144);
-    height: 500px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly
-}
-
-.caninfo{
-    /* background-color: rgb(186, 196, 144); */
-    background-color: rgba(243, 240, 223, 0.792);
-    color: rgba(105, 76, 8, 0.881);
-    font-size: 20px;
-    height: 400px;
-    width: 500px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    justify-content:space-around;
-    /* border: 2px solid black; */
-
-}
-
-
-
-.can_dlt{
-      background-color: rgba(243, 240, 223, 0.792);
-      color: rgba(105, 76, 8, 0.881);
-    font-size: 20px;
-    height: 400px;
-    width: 500px;
-    word-spacing: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#formdlt{
-    width: 320px;
-}
-
-#bt:hover{
-    background-color: rgb(174, 172, 172);
-}
-
-.coo{
-    background-color: rgb(186, 196, 144);
-    height:600px ;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.input_time{
-    background-color: rgba(243, 240, 223, 0.792);
-    height: 350px;
-    width: 370px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.dis_time{
-    background-color: rgba(243, 240, 223, 0.792);
-    height: 350px;
-    width: 370px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.dlt_time{
-    background-color: rgba(243, 240, 223, 0.792);
-    height: 350px;
-    width: 370px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#table{
-    /* background-color: rgba(243, 240, 223, 0.792); */
-    background-color: rgb(186, 196, 144);
-    height:fit-content;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     justify-content: space-around;
     align-items: center;
+    background-color: #333;
+    padding: 10px 0;
 }
 
-
-#feedcontrol{
-    /* margin-top: 300px; */
-    background-color: rgb(186, 196, 144);
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
+.navbar .navbut {
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
 }
-.feedinfo{
-    background-color: rgba(243, 240, 223, 0.792);
+
+.navbar .navbut:hover {
+    background-color: #575757;
+    color: #ddd;
+    border-radius: 5px;
+}
+
+/* Form styles */
+form {
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    color: #161414;
+}
+
+form input, form button {
     margin-top: 10px;
-    height:fit-content;
+    display: block;
+}
+
+form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #575757;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
     text-align: left;
-    font-size: 22px;
-    justify-content: center;
-    align-items: center;
     padding: 10px;
-    width: 400px;
-  
- 
+    border-bottom: 1px solid #ddd;
 }
-.feed_dlt{
-    background-color: rgba(243, 240, 223, 0.792);
-    margin-top: 10px;
-    height: 200px;
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button styles */
+button.cbut {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button.cbut:hover {
+    background-color: #575757;
+}
+
+/* Feedback styles */
+#feedcontrol {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+#feedcontrol li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    list-style: none;
+}
+
+/* Section styles */
+.contain, .coo, .user_control {
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
     text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    width: 420px;
-    color:rgba(134, 95, 11, 0.913);
+    color: #444;
 }
 
-#tab{
-    width: 600px;
-    height: fit-content;
-}
-
-#tab th{
-    height: 70px;
-}
-
-#tab tr{
-    height: 50px;
-}
-
-.user_control{
-    background-color: rgb(186, 196, 144);
-    width: 100%;
-    height: fit-content;
-    /* border: 2px solid   black; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-around;
-}
-
-
-
-.ch{
-    height: 600px;
-    width: 400px;
-    /* border: 2px solid   black; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-evenly
-}
-#dltbutton:hover{
-    background-color: gray;
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
     }
 
-.cbut:hover{
-background-color: gray;
-}
-.change_but{
-    background-color: rgba(243, 240, 223, 0.792);
-    margin-top: -310px;
-    height: 170px;
-    width: 300px;
-    /* border: 2px solid   black; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-around;
-}
+    form input {
+        width: 100%;
+    }
 
-#chname{
-    background-color: rgba(243, 240, 223, 0.792);
-    margin-top: -90px;
-    /* border: 2px solid   black; */
-    height: 240px;
-    width: 400px;
-    text-align: center;
-    color: rgba(105, 76, 8, 0.881);
-    word-spacing: 4px;
-    font-size: 20px;
-}
-
-#chemail{
-    background-color: rgba(243, 240, 223, 0.792);
-    margin-top: -90px;
-    /* border: 2px solid   black; */
-    height: 240px;
-    width: 400px;
-    text-align: center;
-    color: rgba(105, 76, 8, 0.881);
-    word-spacing: 4px;
-    font-size: 20px;
-}
-#reset{
-    background-color: rgba(243, 240, 223, 0.792);
-    margin-top: -90px;
-    /* border: 2px solid   black; */
-    height: 240px;
-    width: 400px;
-    text-align: center;
-    color: rgba(105, 76, 8, 0.881);
-    word-spacing: 4px;
-    font-size: 20px;
-}
-
-.user_details{
-    width: 600px;
-    margin-top: -200px;
-    margin-left:  50px;
-  /* margin-top: -350px; */
-    height: fit-content;
-    /* border: 2px solid   black; */
+    table {
+        font-size: 14px;
+    }
 }
 

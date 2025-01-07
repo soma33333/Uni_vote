@@ -1,45 +1,47 @@
-
-*{
+/* General Styles */
+* {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
-.pic{
-    
-    height: 100%;
+
+/* Background Image and Container */
+.pic {
+    height: 100vh;
     width: 100%;
     background-image: url("../image/backg.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
-
+/* Header Section */
 .uni {
-
     height: 100px;
     width: 100%;
     background-color: rgba(115, 157, 187, 0.813);
     text-align: center;
-    font-family: Arial, sans-serif; 
-    font-size: 40px; 
+    font-family: Arial, sans-serif;
+    font-size: 40px;
     font-weight: bold;
-    color: #856616; 
-  }
+    color: #856616;
+    line-height: 100px;
+}
 
-.container{
+/* Container Layout */
+.container {
     margin-top: -25px;
     border-radius: 10px;
     margin-left: 120px;
     height: 505px;
     width: 1000px;
     display: flex;
-    justify-content: center;
     justify-content: space-evenly;
+    align-items: center;
 }
 
-.left{
-    margin-top: 15px;
+/* Left Section */
+.left {
     background-color: rgba(222, 227, 227, 0.82);
     border-radius: 10px;
     height: 460px;
@@ -48,11 +50,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    align-items: center;
 }
 
-.right{
-    margin-top: 15px;
+.right {
     background-color: rgba(226, 227, 222, 0.82);
     border-radius: 10px;
     height: 460px;
@@ -61,62 +61,105 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
-.butt{
+/* Buttons */
+.butt {
     border: none;
     height: 50px;
-    width: 100px;
-    color:black;
+    width: 200px;
+    color: black;
     background-color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-
-.butt:hover{
+.butt:hover {
     background-color: gray;
 }
-#time_msg{
+
+/* Time Message Styling */
+#time_msg {
     margin-bottom: 13px;
     font-size: 20px;
     height: 90px;
     width: 300px;
-    border: 2px  solid black;
-
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
 }
 
-#incorrect{
-   margin-top: 10px;
+/* Incorrect Message */
+#incorrect {
+    margin-top: 10px;
     font-size: 15px;
     height: 30px;
     width: 200px;
-    border: 2px  solid black;
+    border: 2px solid black;
+    padding: 5px;
+    text-align: center;
 }
-label{
+
+/* Label Styling */
+label {
     width: 120px;
     display: inline-block;
     text-align: right;
+    margin-bottom: 10px;
 }
 
-
-#ar:hover{background-color: gray;}
-#al:hover{background-color: gray;}
-#ur:hover{ background-color: gray;}
-#ul:hover{ background-color: gray;}
-
-#sub:hover{
+/* Hover Effects */
+#ar:hover, #al:hover, #ur:hover, #ul:hover {
     background-color: gray;
 }
 
-#success{
+/* Submit Button Hover Effect */
+#sub:hover {
+    background-color: gray;
+}
+
+/* Success Message */
+#success {
     font-family: Arial, Helvetica, sans-serif;
     word-spacing: 10px;
     line-height: 30px;
-    
+    font-size: 18px;
 }
 
-#welcome{
+/* Welcome Section */
+#welcome {
     line-height: 35px;
     font-style: oblique;
     font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .left, .right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .butt {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    #time_msg, #incorrect {
+        width: 100%;
+    }
 }

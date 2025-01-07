@@ -39,7 +39,9 @@ app.use("/",router1)
 const router2=require("./router/dltcan.js")
 app.use("/",router2)
 
-
+app.get("/result", (req, res) => {  
+    res.render("result");
+ })
 
 
 

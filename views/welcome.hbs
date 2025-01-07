@@ -11,62 +11,47 @@
 <div id="tb">
     <p>Voting Ends In</p>
     <p id="demo"></p>
-    </div>
+</div>
     
-    <form id="timer" action="welcome" method="post">
-        <input type="hidden"  name="time" value="3">
-    </form>
+<form id="timer" action="welcome" method="post">
+    <input type="hidden" name="time" value="3">
+</form>
     
-        <h2>INSTRUCTIONS:</h2>  <h3>HE/SHE</h3>
-        <h3>- Can vote ONLY ONE of the candidate listed below.  </h3>
-        <h3>- Able to see the RESULT only after voting period ends.</h3>
-       
-        
-    
-  
+<h2>INSTRUCTIONS:</h2>  
+<h3>HE/SHE</h3>
+<h3>- Can vote ONLY ONE of the candidate listed below.</h3>
+<h3>- Able to see the RESULT only after voting period ends.</h3>
 
-
-
-    <table class="tab">
+<table class="tab">
     <tbody>
         <tr>
-    <th>SLNO</th>
-     <th>NAME</th>
-      <th>PROFILE</th>
-    <th>SYMBOL</th>
-      <th>VOTING</th>
-  </tr>
+            <th>SLNO</th>
+            <th>NAME</th>
+            <th>PROFILE</th>
+            <th>SYMBOL</th>
+            <th>VOTING</th>
+        </tr>
         {{#each data}}
             <tr>
                 <td>{{this.idno}}</td>
                 <td>{{this.name}}</td>
-                <td><img src="data:image/png;base64,{{this.image}}"  width="110px" height="100px"></td>
-                <td><img src="data:image/png;base64,{{this.symbol}}"  width="110px" height="100px"></td>
-                <td>    <form action="done" method="post">
-                        <input type="hidden"  name="voo" value="{{this.idno}}">
-                        <button type="submit"   >VOTE</button>
+                <td><img src="data:image/png;base64,{{this.image}}" class="profile-img"></td>
+                <td><img src="data:image/png;base64,{{this.symbol}}" class="symbol-img"></td>
+                <td>
+                    <form action="done" method="post">
+                        <input type="hidden" name="voo" value="{{this.idno}}">
+                        <button type="submit">VOTE</button>
                     </form>
-                    </td>
+                </td>
             </tr>
         {{/each}}
     </tbody>
 </table>
 
-        
-
-
-
-        <div id="scroll"></div>
-     <p id="msg"></p>
-
-
-
-
-
-
-
+<div id="scroll"></div>
+<p id="msg"></p>
 
 <script src="wel.js"></script>
 
 </body>
-</html> 
+</html>

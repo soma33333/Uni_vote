@@ -11,20 +11,20 @@ const reset=document.getElementById("reset");
 
 
 function cname(){
-    buttons.style.marginTop="-80px"
+    // buttons.style.marginTop="-px"
     chname.style.display="block"
 chemail.style.display="none"
 reset.style.display="none"
 }
 
 function cemail(){
-    buttons.style.marginTop="-80px"
+    // buttons.style.marginTop="-80px"
     chemail.style.display="block"
     chname.style.display="none"
 reset.style.display="none"
 }
 function creset(){
-    buttons.style.marginTop="-80px"
+    // buttons.style.marginTop="-80px"
     reset.style.display="block"
     chname.style.display="none"
 chemail.style.display="none"
